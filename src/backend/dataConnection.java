@@ -5,6 +5,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -16,10 +17,10 @@ public class dataConnection {
     public dataConnection(){}
 
 
-    public boolean isValidUser(String username, String password){
-        boolean valid = false;
+    public String loginUser(String username, String password) throws MalformedURLException {
+        StringBuilder token = new StringBuilder();
 
-        URL idCheckURL = new URL("                 /"+ Base64.getEncoder().encodeToString((username+":"+password).getBytes()));
+        URL idCheckURL = new URL("login/loginuser/"+ Base64.getEncoder().encodeToString((username+":"+password).getBytes()));
 
         try {
             HttpsURLConnection con = (HttpsURLConnection) idCheckURL.openConnection();
@@ -29,23 +30,23 @@ public class dataConnection {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            String result = br.readLine();
-
-            if(result== "user" || result == "admin")
-                valid = true;
+            String line;
+            while((line = br.readLine()) != null){
+               token.append(line);
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return valid;
+        return token.toString();
     }
 
     public void sendNewMenu(menu m) throws Exception {
 
 
         boolean success;
-        URL url = new URL(); //////////////////////////////////////////////////////////////
+        URL url = new URL("admin/create");
 
         HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
