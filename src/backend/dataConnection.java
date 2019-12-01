@@ -30,7 +30,7 @@ public class dataConnection {
 
             con.setRequestMethod("POST");
             con.setRequestProperty("ContentType", "text/plain");
-            con.setRequestProperty("Accept", "text/plain");
+            con.setRequestProperty("Accept", "application/json");
             con.setDoOutput(true);
 
             OutputStream os = con.getOutputStream();
@@ -50,6 +50,7 @@ public class dataConnection {
 
         return token.toString();
     }
+
 
     public void sendNewMenu(menu m) throws Exception {
 

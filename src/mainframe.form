@@ -30,7 +30,7 @@
             <properties>
               <background color="-8881537"/>
             </properties>
-            <border type="bevel-raised"/>
+            <border type="etched"/>
             <children>
               <component id="e7a3d" class="javax.swing.JLabel">
                 <constraints>
@@ -101,7 +101,7 @@
             <properties>
               <background color="-11292806"/>
             </properties>
-            <border type="bevel-lowered"/>
+            <border type="etched"/>
             <children>
               <component id="7f397" class="javax.swing.JLabel">
                 <constraints>
@@ -113,19 +113,6 @@
                   <horizontalTextPosition value="10"/>
                   <icon value="icons/restaurant (3).png"/>
                   <text value=""/>
-                </properties>
-              </component>
-              <component id="be220" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <font name="Droid Sans Mono Dotted" size="20" style="0"/>
-                  <foreground color="-14869219"/>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <text value="Online - Kantine PMN"/>
                 </properties>
               </component>
             </children>

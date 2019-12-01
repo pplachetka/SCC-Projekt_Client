@@ -1,5 +1,5 @@
 import backend.menu;
-import backend.dataConnection
+import backend.dataConnection;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class adminSight {
 
 
     public adminSight() {
-        menüEinstellenButton.addActionListener(new ActionListener() {
+   /*     menüEinstellenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -97,9 +97,9 @@ public class adminSight {
 
                 }
             }
-        menüErstellenButton.addActionListener(new ActionListener() {
+
         });
-    });
+    });*/
     }
 }
 

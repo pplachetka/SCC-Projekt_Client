@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 public class userSight {
+
+
     private JTabbedPane tabbedPane1;
     private JButton abmeldenButton;
     private JButton wocheZurückButton;
@@ -11,4 +13,23 @@ public class userSight {
     private JTable table1;
     private JTable table2;
     private JButton bestellungAbschickenButton;
+
+    JFrame userSight = new JFrame("userSight");
+
+
+    public void buildWindow(){
+        userSight.setContentPane(new userSight().tabbedPane1);
+        userSight.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        userSight.pack();
+        userSight.setVisible(true);
+    }
+
+
+
+
+
+
+
+
+
 }
