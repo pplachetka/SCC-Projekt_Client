@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="userSight">
-  <scrollpane id="7b3c2">
+  <scrollpane id="7b3c2" binding="rootpane">
     <constraints>
       <xy x="20" y="20" width="942" height="417"/>
     </constraints>
@@ -435,15 +435,6 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
           </vspacer>
-          <scrollpane id="ba5c9">
-            <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children/>
-          </scrollpane>
         </children>
       </grid>
     </children>

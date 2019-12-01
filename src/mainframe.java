@@ -11,38 +11,40 @@ public class mainframe {
     private JTextField textField1;
     private JPasswordField passwordField1;
     private JButton anmeldenButton;
-    JFrame frame = new JFrame("mainframe");
+    JFrame frame = new JFrame("MNP - Kantinensoftware");
+    JFrame usersight;
 
     public mainframe() {
-        anmeldenButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource()== anmeldenButton){
-                  /*  dataConnection dc = new dataConnection();
-                    String token;
+        this.frame.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        anmeldenButton.addActionListener(e -> {
+            if(e.getSource()== anmeldenButton){
+              /*  dataConnection dc = new dataConnection();
+                String token;
 
-                    try {
-                        token = dc.loginUser(textField1.getText(), String.valueOf(passwordField1.getPassword()));
-                    } catch (MalformedURLException ex) {
-                        ex.printStackTrace();
-                    }*/
+                try {
+                    token = dc.loginUser(textField1.getText(), String.valueOf(passwordField1.getPassword()));
+                } catch (MalformedURLException ex) {
+                    ex.printStackTrace();
+                }*/
 
-                    userSight us = new userSight();
-                    us.buildWindow();
+                usersight = new userSight("Benutzerfenster");
 
-                    anmeldenButton.setEnabled(false);
+                anmeldenButton.setEnabled(false);
 
 
 
 
-                }
+
             }
         });
     }
 
+
+
     public static void main(String[] args) {
         mainframe mf = new mainframe();
         mf.buildWindow();
+
     }
 
 

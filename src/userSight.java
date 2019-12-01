@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class userSight {
+public class userSight extends JFrame{
 
 
     private JTabbedPane tabbedPane1;
@@ -13,15 +15,36 @@ public class userSight {
     private JTable table1;
     private JTable table2;
     private JButton bestellungAbschickenButton;
+    private JScrollPane rootpane;
 
-    JFrame userSight = new JFrame("userSight");
 
 
-    public void buildWindow(){
-        userSight.setContentPane(new userSight().tabbedPane1);
-        userSight.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        userSight.pack();
-        userSight.setVisible(true);
+    //private JFrame userSight = new JFrame("Benutzeransicht");
+
+
+    public userSight(String title) {
+        buildWindow(title);
+        this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        abmeldenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource() == abmeldenButton){
+                    dispose();
+                }
+
+
+            }
+
+        });
+    }
+
+    public void buildWindow(String title){
+        this.setTitle(title);
+        this.setContentPane(this.rootpane);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
     }
 
 
