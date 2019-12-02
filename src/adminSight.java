@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class adminSight {
+public class adminSight extends JFrame{
     private JButton abmeldenButton;
     private JTabbedPane tabbedPane1;
     private JButton menüEinstellenButton;
@@ -29,77 +29,50 @@ public class adminSight {
     private JComboBox comboBox13;
     private JComboBox comboBox14;
     private JComboBox comboBox15;
+    private JPanel panel1;
+    private JPanel panel2;
+    windowManager wm;
 
 
-    public adminSight() {
-   /*     menüEinstellenButton.addActionListener(new ActionListener() {
+    public adminSight(String title, windowManager manager) {
+        wm = manager;
+        buildWindow(title);
+        this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+
+        menüEinstellenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if(e.getSource()==menüEinstellenButton){
-
-                    try{
-                        if(!(   comboBox1.getSelectedItem() == null ||
-                                comboBox2.getSelectedItem() == null ||
-                                comboBox3.getSelectedItem() == null ||
-                                comboBox4.getSelectedItem() == null ||
-                                comboBox5.getSelectedItem() == null ||
-                                comboBox6.getSelectedItem() == null ||
-                                comboBox7.getSelectedItem() == null ||
-                                comboBox8.getSelectedItem() == null ||
-                                comboBox9.getSelectedItem() == null ||
-                                comboBox10.getSelectedItem() == null ||
-                                comboBox11.getSelectedItem() == null ||
-                                comboBox12.getSelectedItem() == null ||
-                                comboBox13.getSelectedItem() == null ||
-                                comboBox14.getSelectedItem() == null ||
-                                comboBox15.getSelectedItem() == null ||
-
-                                spinner2.getValue().equals(null) ||
-                                Integer.parseInt((String) spinner2.getValue()) < 1 ||
-                                Integer.parseInt((String) spinner2.getValue()) > 53 ||
-
-                                Integer.parseInt(textField3.getText()) == 0
-                        )) {
-
-
-                        /////////////////////////////////////////////////////////////////////// HTTPs IMPLEMENTATION
-
-
-                            }
-                    } catch (NumberFormatException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                if(e.getSource()==menüErstellenButton) {
-                    try {
-                        if (textField1.getText() != null && €TextField.getText() != null && Double.parseDouble(€TextField.getText()) > 0) {
-
-                            menu meal = new menu(textField1.getText(), Double.parseDouble(€TextField.getText()));
-
-                            dataConnection dc = new dataConnection();
-                            dc.sendNewMenu(meal);
-                        }
-                    } catch (NumberFormatException ex) {
-                        ex.printStackTrace();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
 
 
 
-                )){
-
-                    }
 
 
 
-                }
+
+
             }
 
+
         });
-    });*/
+        abmeldenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == abmeldenButton){
+                    dispose();
+
+                    wm.showMainframe();
+                }
+            }
+        });
+    }
+
+    public void buildWindow(String title){
+        this.setTitle(title);
+        this.setContentPane(this.panel1);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
     }
 }
 
