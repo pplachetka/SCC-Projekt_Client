@@ -61,6 +61,7 @@ public class adminSight extends JFrame{
                 if(e.getSource() == abmeldenButton){
                     dispose();
 
+                    wm.deleteUser();
                     wm.showMainframe();
                 }
             }
@@ -72,6 +73,7 @@ public class adminSight extends JFrame{
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 }

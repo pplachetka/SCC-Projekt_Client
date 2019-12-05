@@ -16,39 +16,39 @@ import java.security.cert.Certificate;
 import java.util.Base64;
 
 public class dataConnection {
+    String URI;
 
     public dataConnection(){}
 
 
-    public String loginUser(String username, String password) throws MalformedURLException {
-        StringBuilder token = new StringBuilder();
+    public String loginUser(String userid, String password) throws MalformedURLException {
+        StringBuilder jsonresponse = new StringBuilder();
 
-        URL idCheckURL = new URL("login/loginuser");
+        URL idCheckURL = new URL(URI + "speiseplan/loginuser");
 
         try {
             HttpsURLConnection con = (HttpsURLConnection) idCheckURL.openConnection();
 
             con.setRequestMethod("POST");
-            con.setRequestProperty("ContentType", "text/plain");
-            con.setRequestProperty("Accept", "application/json");
+            con.setRequestProperty("ContentType", "application/x-www-form-urlencoded");
             con.setDoOutput(true);
 
             OutputStream os = con.getOutputStream();
-            byte[] streamline = Base64.getEncoder().encodeToString((username+":"+password).getBytes()).getBytes();
+            byte[] streamline = ("userid="+userid+"&password="+password).getBytes();
             os.write(streamline);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
             String line;
             while((line = br.readLine()) != null){
-               token.append(line);
+               jsonresponse.append(line);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return token.toString();
+        return jsonresponse.toString();
     }
 
 

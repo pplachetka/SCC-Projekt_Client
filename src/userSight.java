@@ -34,6 +34,7 @@ public class userSight extends JFrame{
                 if(e.getSource() == abmeldenButton){
                     dispose();
 
+                    wm.deleteUser();
                     wm.showMainframe();
                 }
 
@@ -48,6 +49,7 @@ public class userSight extends JFrame{
         this.setContentPane(this.rootpane);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
