@@ -1,19 +1,13 @@
 package backend;
 
-import com.sun.xml.internal.ws.api.pipe.ContentType;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLPeerUnverifiedException;
+//import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.security.cert.Certificate;
-import java.util.Base64;
 
 public class dataConnection {
     String URI;
@@ -27,7 +21,7 @@ public class dataConnection {
         URL idCheckURL = new URL(URI + "speiseplan/loginuser");
 
         try {
-            HttpsURLConnection con = (HttpsURLConnection) idCheckURL.openConnection();
+            HttpURLConnection con = (HttpURLConnection) idCheckURL.openConnection();
 
             con.setRequestMethod("POST");
             con.setRequestProperty("ContentType", "application/x-www-form-urlencoded");
@@ -56,9 +50,9 @@ public class dataConnection {
 
 
         boolean success;
-        URL url = new URL("admin/create");
+        URL url = new URL(URI + "admin/create");
 
-        HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
         con.setRequestMethod("GET");
         con.setDoOutput(true);
