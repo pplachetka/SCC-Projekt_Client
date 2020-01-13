@@ -1,9 +1,10 @@
-import backend.menu;
-import backend.dataConnection;
+import backend.MenuItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 public class adminSight extends JFrame{
     private JButton abmeldenButton;
@@ -32,12 +33,16 @@ public class adminSight extends JFrame{
     private JPanel panel1;
     private JPanel panel2;
     windowManager wm;
+    MenuItem[] menuList;
 
 
-    public adminSight(String title, windowManager manager) {
+    public adminSight(String title, windowManager manager) throws MalformedURLException {
         wm = manager;
         buildWindow(title);
         this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        menuList = wm.getDc().getMenuList();
+
+        comboBox1 = new JComboBox(menuList);
 
         menüEinstellenButton.addActionListener(new ActionListener() {
             @Override
@@ -63,6 +68,21 @@ public class adminSight extends JFrame{
 
                     wm.deleteUser();
                     wm.showMainframe();
+                }
+            }
+        });
+        menüErstellenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == menüEinstellenButton){
+
+                    try {
+
+                        wm.getDc().sendNewMenu(textField1.getText(), €TextField.getText());
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });

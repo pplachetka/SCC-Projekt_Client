@@ -1,12 +1,18 @@
+import backend.dataConnection;
 import backend.user;
 
 import javax.swing.*;
+import java.net.MalformedURLException;
 
 public class windowManager {
 
     JFrame usersight;
     JFrame mainframe;
     JFrame adminsight;
+
+
+
+    dataConnection dc = new dataConnection();
     private backend.user user;
 
     public static void main(String[] args) {
@@ -23,7 +29,7 @@ public class windowManager {
         usersight = new userSight("Bestellung - Kantine MNP", this);
     }
 
-    public void buildAdminsight(){
+    public void buildAdminsight() throws MalformedURLException {
         adminsight = new adminSight("Admin - Kantine MNP", this);
     }
 
@@ -58,4 +64,6 @@ public class windowManager {
     public void deleteUser(){
         this.user = null;
     }
+
+    public dataConnection getDc() { return dc; }
 }
