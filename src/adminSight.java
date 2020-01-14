@@ -74,7 +74,7 @@ public class adminSight extends JFrame{
         menüErstellenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == menüEinstellenButton){
+                if(e.getSource() == menüErstellenButton){
 
                     try {
 

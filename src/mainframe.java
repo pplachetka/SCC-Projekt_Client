@@ -51,7 +51,11 @@ public class mainframe extends JFrame{
                         break;
 
                     case 1:
-                        wm.buildAdminsight();
+                        try {
+                            wm.buildAdminsight();
+                        } catch (MalformedURLException ex) {
+                            ex.printStackTrace();
+                        }
                         this.setVisible(false);
                         break;
                 }

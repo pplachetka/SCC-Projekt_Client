@@ -1,12 +1,10 @@
 package backend;
 
-//import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.HttpsURLConnection;
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class dataConnection {
-    String URI;
+    String URI = "https://speiseplan.ddns.net/speiseplan/endpoint/";
 
     public dataConnection(){}
 
@@ -22,18 +20,20 @@ public class dataConnection {
     public String loginUser(String userid, String password) throws MalformedURLException {
         StringBuilder jsonresponse = new StringBuilder();
 
-        URL idCheckURL = new URL(URI + "speiseplan/loginuser");
+        URL idCheckURL = new URL(URI + "authentication/login");
 
         try {
-            HttpURLConnection con = (HttpURLConnection) idCheckURL.openConnection();
+            HttpsURLConnection con = (HttpsURLConnection) idCheckURL.openConnection();
 
             con.setRequestMethod("POST");
             con.setRequestProperty("ContentType", "application/x-www-form-urlencoded");
             con.setDoOutput(true);
+            con.setDoInput(true);
 
-            OutputStream os = con.getOutputStream();
-            byte[] streamline = ("userid="+userid+"&password="+password).getBytes();
-            os.write(streamline);
+            DataOutputStream dataOutputStream = new DataOutputStream(con.getOutputStream());
+            dataOutputStream.writeBytes("userId="+userid+"&password="+password);
+            dataOutputStream.flush();
+            dataOutputStream.close();
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
@@ -51,7 +51,7 @@ public class dataConnection {
 
     public MenuItem[] getMenuList() throws MalformedURLException {
 
-        URL getListURL = new URL(URI + "/admin/getMenuItemList");
+        URL getListURL = new URL(URI + "admin/getMenuItemList");
 
         try {
 
@@ -94,7 +94,7 @@ public class dataConnection {
             con.setDoOutput(true);
 
             OutputStream os = con.getOutputStream();
-            byte[] streamline = ("description="+description+"&costs="+price).getBytes();
+            byte[] streamline = ("Description="+description+"&Costs="+price).getBytes();
             os.write(streamline);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
