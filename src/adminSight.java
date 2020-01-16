@@ -42,7 +42,43 @@ public class adminSight extends JFrame{
         this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
         menuList = wm.getDc().getMenuList();
 
-        comboBox1 = new JComboBox(menuList);
+        comboBox1.insertItemAt("",0);
+        comboBox2.insertItemAt("",0);
+        comboBox3.insertItemAt("",0);
+        comboBox4.insertItemAt("",0);
+        comboBox5.insertItemAt("",0);
+        comboBox6.insertItemAt("",0);
+        comboBox7.insertItemAt("",0);
+        comboBox8.insertItemAt("",0);
+        comboBox9.insertItemAt("",0);
+        comboBox10.insertItemAt("",0);
+        comboBox11.insertItemAt("",0);
+        comboBox12.insertItemAt("",0);
+        comboBox13.insertItemAt("",0);
+        comboBox14.insertItemAt("",0);
+        comboBox15.insertItemAt("",0);
+
+
+
+        for(MenuItem menu : menuList){
+            comboBox1.addItem(menu.getDescription());
+            comboBox2.addItem(menu.getDescription());
+            comboBox3.addItem(menu.getDescription());
+            comboBox4.addItem(menu.getDescription());
+            comboBox5.addItem(menu.getDescription());
+            comboBox6.addItem(menu.getDescription());
+            comboBox7.addItem(menu.getDescription());
+            comboBox8.addItem(menu.getDescription());
+            comboBox9.addItem(menu.getDescription());
+            comboBox10.addItem(menu.getDescription());
+            comboBox11.addItem(menu.getDescription());
+            comboBox12.addItem(menu.getDescription());
+            comboBox13.addItem(menu.getDescription());
+            comboBox14.addItem(menu.getDescription());
+            comboBox15.addItem(menu.getDescription());
+
+
+        }
 
         menüEinstellenButton.addActionListener(new ActionListener() {
             @Override

@@ -4,42 +4,42 @@ import java.math.BigDecimal;
 
 public class MenuItem {
 
-    private String MenuItemID;
-    private String Description;
-    private BigDecimal Costs;
+    private String menuItemID;
+    private String description;
+    private BigDecimal costs;
 
     public String getMenuItemID() {
-        return MenuItemID;
+        return menuItemID;
     }
 
     public void setMenuItemID(String menuItemID) {
-        MenuItemID = menuItemID;
+        this.menuItemID = menuItemID;
     }
 
 
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public BigDecimal getCosts() {
-        return Costs;
+        return costs;
     }
 
     public void setCosts(BigDecimal costs) {
-        Costs = costs;
+        this.costs = costs;
     }
 
     @Override
     public String toString() {
         return "MenuItem{" +
-                "MenuItemID='" + MenuItemID + '\'' +
-                ", Description='" + Description + '\'' +
-                ", Costs=" + Costs +
+                "MenuItemID='" + menuItemID + '\'' +
+                ", Description='" + description + '\'' +
+                ", Costs=" + costs +
                 '}';
     }
 }
