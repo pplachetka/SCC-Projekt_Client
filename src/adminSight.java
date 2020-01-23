@@ -102,7 +102,7 @@ public class adminSight extends JFrame{
 
                 if(e.getSource() == menüEinstellenButton){
 
-                    LocalDate date = LocalDate.of(Integer.parseInt(yearLabel.getText()), Month.JANUARY, 1);
+                    LocalDate date = LocalDate.of(Integer.parseInt(yearLabel.getText()), LocalDate.now().getMonth(), 1);
                     LocalDate dayInWeek = date.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
 
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
@@ -301,6 +301,14 @@ public class adminSight extends JFrame{
                     weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText())-1));
                 }
 
+            }
+        });
+        wocheVorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(actionEvent.getSource() == wocheVorButton){
+                    weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText())+1));
+                }
             }
         });
     }
