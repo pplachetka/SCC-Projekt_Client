@@ -1,4 +1,3 @@
-import backend.dataConnection;
 import backend.user;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ public class windowManager {
 
 
 
-    dataConnection dc = new dataConnection();
+    dataConnection dc = new dataConnection(this);
     private backend.user user;
 
     public static void main(String[] args) {
@@ -46,7 +45,7 @@ public class windowManager {
     }
 
     public String getFamilyname(){
-        return this.user.getFamilyname();
+        return this.user.getFamilyName();
     }
 
     public String getUserID(){
@@ -54,7 +53,7 @@ public class windowManager {
     }
 
     public String getServicetoken(){
-        return user.getServicetoken();
+        return user.getToken();
     }
 
     public int usergroup(){

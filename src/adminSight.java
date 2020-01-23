@@ -4,7 +4,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.IsoFields;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class adminSight extends JFrame{
     private JButton abmeldenButton;
@@ -13,8 +20,6 @@ public class adminSight extends JFrame{
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
-    private JSpinner spinner2;
-    private JTextField textField3;
     private JTextField €TextField;
     private JTextField textField1;
     private JButton menüErstellenButton;
@@ -32,8 +37,13 @@ public class adminSight extends JFrame{
     private JComboBox comboBox15;
     private JPanel panel1;
     private JPanel panel2;
+    private JButton wocheZurückButton;
+    private JButton wocheVorButton;
+    private JLabel yearLabel;
+    private JLabel weekofyearLabel;
     windowManager wm;
     MenuItem[] menuList;
+    LocalDate ld;
 
 
     public adminSight(String title, windowManager manager) throws MalformedURLException {
@@ -41,6 +51,12 @@ public class adminSight extends JFrame{
         buildWindow(title);
         this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
         menuList = wm.getDc().getMenuList();
+        ld = LocalDate.now();
+        yearLabel.setText(String.valueOf(ld.getYear()));
+        weekofyearLabel.setText(String.valueOf(ld.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)));
+
+
+
 
         comboBox1.insertItemAt("",0);
         comboBox2.insertItemAt("",0);
@@ -84,18 +100,174 @@ public class adminSight extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if(e.getSource() == menüEinstellenButton){
+
+                    LocalDate date = LocalDate.of(Integer.parseInt(yearLabel.getText()), Month.JANUARY, 1);
+                    LocalDate dayInWeek = date.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+
+
+                    String menu1ID = "";
+                    String menu2ID = "";
+                    String menu3ID = "";
+
+
+
+                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////MONDAY
+
+                    if (String.valueOf(comboBox1.getSelectedItem()) != null || !String.valueOf(comboBox1.getSelectedItem()).equals("")
+                            || String.valueOf(comboBox2.getSelectedItem()) != null || !String.valueOf(comboBox2.getSelectedItem()).equals("")
+                            || String.valueOf(comboBox3.getSelectedItem()) != null || !String.valueOf(comboBox3.getSelectedItem()).equals("")) {
+
+
+                        for (MenuItem menu : menuList) {
+                            if (menu.getDescription() == String.valueOf(comboBox1.getSelectedItem()))
+                                menu1ID = menu.getMenuItemID();
+                        }
+                        for (MenuItem menu : menuList) {
+                            if (menu.getDescription() == String.valueOf(comboBox2.getSelectedItem()))
+                                menu2ID = menu.getMenuItemID();
+                        }
+                        for (MenuItem menu : menuList) {
+                            if (menu.getDescription() == String.valueOf(comboBox3.getSelectedItem()))
+                                menu3ID = menu.getMenuItemID();
+                        }
+
+                        try {
+
+                            wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.MONDAY)));
+
+                        } catch (MalformedURLException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////TUESDAY
+
+                        if (String.valueOf(comboBox4.getSelectedItem()) != null || !String.valueOf(comboBox4.getSelectedItem()).equals("")
+                                || String.valueOf(comboBox5.getSelectedItem()) != null || !String.valueOf(comboBox5.getSelectedItem()).equals("")
+                                || String.valueOf(comboBox6.getSelectedItem()) != null || !String.valueOf(comboBox6.getSelectedItem()).equals("")) {
+
+
+                            for (MenuItem menu : menuList) {
+                                if (menu.getDescription() == String.valueOf(comboBox4.getSelectedItem()))
+                                    menu1ID = menu.getMenuItemID();
+                            }
+                            for (MenuItem menu : menuList) {
+                                if (menu.getDescription() == String.valueOf(comboBox5.getSelectedItem()))
+                                    menu2ID = menu.getMenuItemID();
+                            }
+                            for (MenuItem menu : menuList) {
+                                if (menu.getDescription() == String.valueOf(comboBox6.getSelectedItem()))
+                                    menu3ID = menu.getMenuItemID();
+                            }
+
+                            try {
+
+                                wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.TUESDAY)));
+
+                            } catch (MalformedURLException ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WEDNESDAY
+
+                            if (String.valueOf(comboBox7.getSelectedItem()) != null || !String.valueOf(comboBox7.getSelectedItem()).equals("")
+                                    || String.valueOf(comboBox8.getSelectedItem()) != null || !String.valueOf(comboBox8.getSelectedItem()).equals("")
+                                    || String.valueOf(comboBox9.getSelectedItem()) != null || !String.valueOf(comboBox9.getSelectedItem()).equals("")) {
+
+
+                                for (MenuItem menu : menuList) {
+                                    if (menu.getDescription() == String.valueOf(comboBox7.getSelectedItem()))
+                                        menu1ID = menu.getMenuItemID();
+                                }
+                                for (MenuItem menu : menuList) {
+                                    if (menu.getDescription() == String.valueOf(comboBox8.getSelectedItem()))
+                                        menu2ID = menu.getMenuItemID();
+                                }
+                                for (MenuItem menu : menuList) {
+                                    if (menu.getDescription() == String.valueOf(comboBox9.getSelectedItem()))
+                                        menu3ID = menu.getMenuItemID();
+                                }
+
+                                try {
+
+                                    wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.WEDNESDAY)));
+
+                                } catch (MalformedURLException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+
+                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////THURSDAY
+
+                                if (String.valueOf(comboBox10.getSelectedItem()) != null || !String.valueOf(comboBox10.getSelectedItem()).equals("")
+                                        || String.valueOf(comboBox11.getSelectedItem()) != null || !String.valueOf(comboBox11.getSelectedItem()).equals("")
+                                        || String.valueOf(comboBox12.getSelectedItem()) != null || !String.valueOf(comboBox12.getSelectedItem()).equals("")) {
+
+
+                                    for (MenuItem menu : menuList) {
+                                        if (menu.getDescription() == String.valueOf(comboBox10.getSelectedItem()))
+                                            menu1ID = menu.getMenuItemID();
+                                    }
+                                    for (MenuItem menu : menuList) {
+                                        if (menu.getDescription() == String.valueOf(comboBox11.getSelectedItem()))
+                                            menu2ID = menu.getMenuItemID();
+                                    }
+                                    for (MenuItem menu : menuList) {
+                                        if (menu.getDescription() == String.valueOf(comboBox12.getSelectedItem()))
+                                            menu3ID = menu.getMenuItemID();
+                                    }
+
+                                    try {
+
+                                        wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.THURSDAY)));
+
+                                    } catch (MalformedURLException ex) {
+                                        ex.printStackTrace();
+                                    }
+                                }
+
+                                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////FRIDAY
+
+                                    if (String.valueOf(comboBox13.getSelectedItem()) != null || !String.valueOf(comboBox13.getSelectedItem()).equals("")
+                                            || String.valueOf(comboBox14.getSelectedItem()) != null || !String.valueOf(comboBox14.getSelectedItem()).equals("")
+                                            || String.valueOf(comboBox15.getSelectedItem()) != null || !String.valueOf(comboBox15.getSelectedItem()).equals("")) {
+
+
+                                        for (MenuItem menu : menuList) {
+                                            if (menu.getDescription() == String.valueOf(comboBox13.getSelectedItem()))
+                                                menu1ID = menu.getMenuItemID();
+                                        }
+                                        for (MenuItem menu : menuList) {
+                                            if (menu.getDescription() == String.valueOf(comboBox14.getSelectedItem()))
+                                                menu2ID = menu.getMenuItemID();
+                                        }
+                                        for (MenuItem menu : menuList) {
+                                            if (menu.getDescription() == String.valueOf(comboBox15.getSelectedItem()))
+                                                menu3ID = menu.getMenuItemID();
+                                        }
+
+                                        try {
+
+                                            wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.FRIDAY)));
+
+                                        } catch (MalformedURLException ex) {
+                                            ex.printStackTrace();
+                                        }
+                                    }
+                    }
 
 
 
 
+                }
 
 
+            });
 
-
-            }
-
-
-        });
         abmeldenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,6 +292,15 @@ public class adminSight extends JFrame{
                         ex.printStackTrace();
                     }
                 }
+            }
+        });
+        wocheZurückButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(actionEvent.getSource() == wocheZurückButton){
+                    weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText())-1));
+                }
+
             }
         });
     }

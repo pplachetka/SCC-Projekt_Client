@@ -1,21 +1,24 @@
-package backend;
-
-import javax.net.ssl.HttpsURLConnection;
+import backend.MenuItem;
+import backend.menuItemSchedule;
+import backend.schedulePacket;
 import com.google.gson.Gson;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class dataConnection {
+
     String URI = "https://speiseplan.ddns.net/speiseplan/endpoint/";
+    private windowManager wima;
 
-    public dataConnection(){}
 
+
+    public dataConnection(windowManager wm){
+        this.wima = wm;
+    }
 
     public String loginUser(String userid, String password) throws MalformedURLException {
         StringBuilder jsonresponse = new StringBuilder();
@@ -31,7 +34,7 @@ public class dataConnection {
             con.setDoInput(true);
 
             DataOutputStream dataOutputStream = new DataOutputStream(con.getOutputStream());
-            dataOutputStream.writeBytes("userId="+userid+"&password="+password);
+            dataOutputStream.writeBytes("userID="+userid+"&password="+password);
             dataOutputStream.flush();
             dataOutputStream.close();
 
@@ -51,13 +54,13 @@ public class dataConnection {
 
     public MenuItem[] getMenuList() throws MalformedURLException {
 
-        URL getListURL = new URL(URI + "admin/getMenuItemList");
+        URL getListURL = new URL(URI + "admin/getMenuItemList?token=" + wima.getServicetoken());
 
         try {
 
-            HttpURLConnection con = (HttpURLConnection) getListURL.openConnection();
+            HttpsURLConnection con = (HttpsURLConnection) getListURL.openConnection();
 
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setRequestProperty("Accept" , "application/json");
             con.setDoOutput(true);
 
@@ -87,14 +90,14 @@ public class dataConnection {
         URL newMenu = new URL(URI + "admin/setMenuItem");
 
         try{
-            HttpURLConnection con = (HttpURLConnection) newMenu.openConnection();
+            HttpsURLConnection con = (HttpsURLConnection) newMenu.openConnection();
 
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             con.setDoOutput(true);
 
             OutputStream os = con.getOutputStream();
-            byte[] streamline = ("Description="+description+"&Costs="+price).getBytes();
+            byte[] streamline = ("description="+description+"&costs="+price).getBytes();
             os.write(streamline);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -104,9 +107,61 @@ public class dataConnection {
             ex.printStackTrace();
         }
 
+    }
+
+    public void sendMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
+
+        URL sendDayURL = new URL(URI + "schedule/setMenuItemSchedule");
+
+        schedulePacket sp = new schedulePacket(wima.getServicetoken());
 
 
+        if(menuItemId1 != null){
+            menuItemSchedule m1 = new menuItemSchedule();
+            m1.setPosition("1");
+            m1.setDate(date);
+            m1.setMenuItemID(menuItemId1);
+
+            sp.addToList(m1);
+        }
+        if(menuItemId2 != null){
+            menuItemSchedule m2 = new menuItemSchedule();
+            m2.setPosition("2");
+            m2.setDate(date);
+            m2.setMenuItemID(menuItemId2);
+
+            sp.addToList(m2);
+        }
+        if(menuItemId3 != null){
+            menuItemSchedule m3 = new menuItemSchedule();
+            m3.setPosition("3");
+            m3.setDate(date);
+            m3.setMenuItemID(menuItemId3);
+
+            sp.addToList(m3);
         }
 
+        Gson gson = new Gson();
+
+        System.out.println(gson.toJson(sp));
+
+        try{
+            HttpsURLConnection con = (HttpsURLConnection) sendDayURL.openConnection();
+
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setDoOutput(true);
+
+            OutputStream os = con.getOutputStream();
+            byte[] streamline = (gson.toJson(sp).getBytes());
+            os.write(streamline);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     }

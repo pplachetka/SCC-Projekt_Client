@@ -1,11 +1,7 @@
-import backend.dataConnection;
 import backend.user;
 import com.google.gson.Gson;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 
 public class mainframe extends JFrame{
@@ -22,7 +18,7 @@ public class mainframe extends JFrame{
 
         anmeldenButton.addActionListener(e -> {
             if(e.getSource()== anmeldenButton && !(textField1.getText().equals("")) && !(String.valueOf(passwordField1.getPassword()).equals(""))){
-                dataConnection dc = new dataConnection();
+                dataConnection dc = wm.getDc();
                 Gson converter = new Gson();
                 String jsonstring = "";
                 user jsonuser = null;
@@ -33,12 +29,16 @@ public class mainframe extends JFrame{
                     ex.printStackTrace();
                 }
 
+
+
                 if(jsonstring != ""){
                     jsonuser = converter.fromJson(jsonstring, user.class);
 
                     wm.setUser(jsonuser);
                 }
                 else JOptionPane.showMessageDialog(this, "Es ist ein Fehler beim Login aufgetreten. Bitte versuchen sie es erneut.");
+
+
 
                 switch(jsonuser.getIsAdmin()){
                     case -1:
@@ -47,6 +47,7 @@ public class mainframe extends JFrame{
 
                     case 0:
                         wm.buildUsersight();
+
                         this.setVisible(false);
                         break;
 
