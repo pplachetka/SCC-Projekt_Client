@@ -164,4 +164,36 @@ public class dataConnection {
         }
     }
 
+    public menuItemSchedule[] getMenuItemSchedule(String startDate, String endDate) throws MalformedURLException {
+
+        URL getScheduleURL = new URL(URI + "schedule/getMenuItemSchedule?startDate=" + startDate +"&endDate=" + endDate +"&token=" + wima.getServicetoken());
+
+        try {
+
+            HttpsURLConnection con = (HttpsURLConnection) getScheduleURL.openConnection();
+
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Accept" , "application/json");
+            con.setDoOutput(true);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line+"\n");
+            }
+
+            Gson gson = new Gson();
+
+            return gson.fromJson(sb.toString(), menuItemSchedule[].class);
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     }

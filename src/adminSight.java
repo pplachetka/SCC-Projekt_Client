@@ -1,8 +1,10 @@
 import backend.MenuItem;
+import backend.menuItemSchedule;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -44,6 +46,7 @@ public class adminSight extends JFrame{
     windowManager wm;
     MenuItem[] menuList;
     LocalDate ld;
+    menuItemSchedule[] serverSchedule;
 
 
     public adminSight(String title, windowManager manager) throws MalformedURLException {
@@ -55,7 +58,14 @@ public class adminSight extends JFrame{
         yearLabel.setText(String.valueOf(ld.getYear()));
         weekofyearLabel.setText(String.valueOf(ld.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)));
 
+        LocalDate dayOfWeek;
+        dayOfWeek = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+        String start = dtf.format(dayOfWeek.with(DayOfWeek.MONDAY));
+        String end = dtf.format(dayOfWeek.with(DayOfWeek.FRIDAY));
+        serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
 
+        fillWeek();
 
 
         comboBox1.insertItemAt("",0);
@@ -299,6 +309,19 @@ public class adminSight extends JFrame{
             public void actionPerformed(ActionEvent actionEvent) {
                 if(actionEvent.getSource() == wocheZurückButton){
                     weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText())-1));
+
+                    LocalDate weekback = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+                    String start = dtf.format(weekback.with(DayOfWeek.MONDAY));
+                    String end = dtf.format(weekback.with(DayOfWeek.FRIDAY));
+                    try {
+
+                        serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
+                    fillWeek();
                 }
 
             }
@@ -308,10 +331,116 @@ public class adminSight extends JFrame{
             public void actionPerformed(ActionEvent actionEvent) {
                 if(actionEvent.getSource() == wocheVorButton){
                     weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText())+1));
+
+                    LocalDate weekahead = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+                    String start = dtf.format(weekahead.with(DayOfWeek.MONDAY));
+                    String end = dtf.format(weekahead.with(DayOfWeek.FRIDAY));
+                    try {
+
+                        serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
+                    fillWeek();
                 }
             }
         });
     }
+
+    private void fillWeek(){
+        menuItemSchedule daysMenus[] = new menuItemSchedule[3];
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+        LocalDate date = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Integer.parseInt(weekofyearLabel.getText()));
+        LocalDate weekday = date.with(DayOfWeek.MONDAY);
+
+
+        for(menuItemSchedule item : serverSchedule){
+            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                daysMenus[0] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                daysMenus[1] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                daysMenus[2] = item;
+        }
+
+
+        comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
+        comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
+        comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+        weekday = date.with(DayOfWeek.TUESDAY);
+
+
+        for(menuItemSchedule item : serverSchedule){
+            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                daysMenus[0] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                daysMenus[1] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                daysMenus[2] = item;
+        }
+
+
+        comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
+        comboBox5.getModel().setSelectedItem(daysMenus[1].getDescription());
+        comboBox6.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+        weekday = date.with(DayOfWeek.WEDNESDAY);
+
+
+        for(menuItemSchedule item : serverSchedule){
+            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                daysMenus[0] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                daysMenus[1] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                daysMenus[2] = item;
+        }
+
+
+        comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
+        comboBox8.getModel().setSelectedItem(daysMenus[1].getDescription());
+        comboBox9.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+        weekday = date.with(DayOfWeek.THURSDAY);
+
+
+        for(menuItemSchedule item : serverSchedule){
+            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                daysMenus[0] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                daysMenus[1] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                daysMenus[2] = item;
+        }
+
+
+        comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
+        comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
+        comboBox12.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+        weekday = date.with(DayOfWeek.FRIDAY);
+
+
+        for(menuItemSchedule item : serverSchedule){
+            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                daysMenus[0] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                daysMenus[1] = item;
+            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                daysMenus[2] = item;
+        }
+
+
+        comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
+        comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
+        comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+    }
+
+
 
     public void buildWindow(String title){
         this.setTitle(title);
