@@ -5,6 +5,7 @@ public class menuItemSchedule {
     String menuItemID;
     String position;
     String date;
+    String menuItemScheduleID;
 
     public menuItemSchedule() {
     }
@@ -34,6 +35,12 @@ public class menuItemSchedule {
         this.date = date;
     }
 
+    public String getMenuItemScheduleID() {
+        return menuItemScheduleID;
+    }
 
+    public void setMenuItemScheduleID(String menuItemScheduleID) {
+        this.menuItemScheduleID = menuItemScheduleID;
+    }
 
 }

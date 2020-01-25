@@ -116,9 +116,9 @@ public class adminSight extends JFrame{
 
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////MONDAY
 
-                    if (String.valueOf(comboBox1.getSelectedItem()) != null || !String.valueOf(comboBox1.getSelectedItem()).equals("")
-                            || String.valueOf(comboBox2.getSelectedItem()) != null || !String.valueOf(comboBox2.getSelectedItem()).equals("")
-                            || String.valueOf(comboBox3.getSelectedItem()) != null || !String.valueOf(comboBox3.getSelectedItem()).equals("")) {
+                    if (!(comboBox1.getSelectedIndex() == -1)
+                            || !(comboBox2.getSelectedIndex() == -1)
+                            || !(comboBox3.getSelectedIndex() == -1)) {
 
 
                         for (MenuItem menu : menuList) {
@@ -145,9 +145,9 @@ public class adminSight extends JFrame{
 
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////TUESDAY
 
-                        if (String.valueOf(comboBox4.getSelectedItem()) != null || !String.valueOf(comboBox4.getSelectedItem()).equals("")
-                                || String.valueOf(comboBox5.getSelectedItem()) != null || !String.valueOf(comboBox5.getSelectedItem()).equals("")
-                                || String.valueOf(comboBox6.getSelectedItem()) != null || !String.valueOf(comboBox6.getSelectedItem()).equals("")) {
+                        if (!(comboBox4.getSelectedIndex() == -1)
+                            || !(comboBox5.getSelectedIndex() == -1)
+                            || !(comboBox6.getSelectedIndex() == -1)) {
 
 
                             for (MenuItem menu : menuList) {
@@ -174,9 +174,9 @@ public class adminSight extends JFrame{
 
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WEDNESDAY
 
-                            if (String.valueOf(comboBox7.getSelectedItem()) != null || !String.valueOf(comboBox7.getSelectedItem()).equals("")
-                                    || String.valueOf(comboBox8.getSelectedItem()) != null || !String.valueOf(comboBox8.getSelectedItem()).equals("")
-                                    || String.valueOf(comboBox9.getSelectedItem()) != null || !String.valueOf(comboBox9.getSelectedItem()).equals("")) {
+                            if (!(comboBox7.getSelectedIndex() == -1)
+                                || !(comboBox8.getSelectedIndex() == -1)
+                                || !(comboBox9.getSelectedIndex() == -1)) {
 
 
                                 for (MenuItem menu : menuList) {
@@ -203,9 +203,9 @@ public class adminSight extends JFrame{
 
                                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////THURSDAY
 
-                                if (String.valueOf(comboBox10.getSelectedItem()) != null || !String.valueOf(comboBox10.getSelectedItem()).equals("")
-                                        || String.valueOf(comboBox11.getSelectedItem()) != null || !String.valueOf(comboBox11.getSelectedItem()).equals("")
-                                        || String.valueOf(comboBox12.getSelectedItem()) != null || !String.valueOf(comboBox12.getSelectedItem()).equals("")) {
+                                if (!(comboBox10.getSelectedIndex() == -1)
+                                     || !(comboBox11.getSelectedIndex() == -1)
+                                     || !(comboBox12.getSelectedIndex() == -1)) {
 
 
                                     for (MenuItem menu : menuList) {
@@ -232,9 +232,9 @@ public class adminSight extends JFrame{
 
                                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////FRIDAY
 
-                                    if (String.valueOf(comboBox13.getSelectedItem()) != null || !String.valueOf(comboBox13.getSelectedItem()).equals("")
-                                            || String.valueOf(comboBox14.getSelectedItem()) != null || !String.valueOf(comboBox14.getSelectedItem()).equals("")
-                                            || String.valueOf(comboBox15.getSelectedItem()) != null || !String.valueOf(comboBox15.getSelectedItem()).equals("")) {
+                                    if (!(comboBox13.getSelectedIndex() == -1)
+                                            || !(comboBox14.getSelectedIndex() == -1)
+                                            || !(comboBox15.getSelectedIndex() == -1)) {
 
 
                                         for (MenuItem menu : menuList) {
