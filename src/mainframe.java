@@ -16,7 +16,7 @@ public class mainframe extends JFrame{
     public mainframe(String title, windowManager manager) {
         wm = manager;
         buildWindow(title);
-        this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        this.setIconImage(new ImageIcon(this.getClass().getResource("/icons/chef.png")).getImage());
 
         anmeldenButton.addActionListener(e -> {
             if(e.getSource()== anmeldenButton && !(textField1.getText().equals("")) && !(String.valueOf(passwordField1.getPassword()).equals(""))){

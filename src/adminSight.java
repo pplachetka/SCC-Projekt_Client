@@ -52,7 +52,7 @@ public class adminSight extends JFrame{
     public adminSight(String title, windowManager manager) throws MalformedURLException {
         wm = manager;
         buildWindow(title);
-        this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        this.setIconImage(new ImageIcon(this.getClass().getResource("icons/chef.png")).getImage());
         menuList = wm.getDc().getMenuList();
         ld = LocalDate.now();
         yearLabel.setText(String.valueOf(ld.getYear()));

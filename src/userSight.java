@@ -25,7 +25,7 @@ public class userSight extends JFrame{
     public userSight(String title, windowManager manager) {
         wm = manager;
         buildWindow(title);
-        this.setIconImage(new ImageIcon("C:\\Users\\Paul\\IdeaProjects\\untitled7\\src\\icons\\chef.png").getImage());
+        this.setIconImage(new ImageIcon(this.getClass().getResource("icons/chef.png")).getImage());
 
         abmeldenButton.addActionListener(new ActionListener() {
             @Override
