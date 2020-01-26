@@ -65,7 +65,7 @@ public class adminSight extends JFrame{
         String end = dtf.format(dayOfWeek.with(DayOfWeek.FRIDAY));
         serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
 
-        fillWeek();
+
 
 
         comboBox1.insertItemAt("",0);
@@ -103,6 +103,7 @@ public class adminSight extends JFrame{
             comboBox14.addItem(menu.getDescription());
             comboBox15.addItem(menu.getDescription());
 
+            fillWeek();
 
         }
 
@@ -367,11 +368,12 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null)
-            comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
-            comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
-            comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
-/*
+            if(daysMenus[0] != null) {
+                comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
+                comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
+                comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
+            }
+
             daysMenus = new menuItemSchedule[3];
             weekday = date.with(DayOfWeek.TUESDAY);
 
@@ -454,7 +456,7 @@ for(menuItemSchedule mm:daysMenus){
             comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
             comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
             comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
-*/
+
         }
         catch (Exception e){
             e.printStackTrace();
