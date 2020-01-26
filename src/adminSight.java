@@ -296,10 +296,17 @@ public class adminSight extends JFrame{
                 if(e.getSource() == menüErstellenButton){
 
                     try {
+                        Double.parseDouble(€TextField.getText());
+                        int status= wm.getDc().sendNewMenu(textField1.getText(), €TextField.getText());
 
-                        wm.getDc().sendNewMenu(textField1.getText(), €TextField.getText());
+                        if(status == 200){
+                            successMessage();
+                        }
+                        else generalErrorMessage();
+
 
                     } catch (Exception ex) {
+                        wrongPriceMessage();
                         ex.printStackTrace();
                     }
                 }
@@ -386,9 +393,7 @@ public class adminSight extends JFrame{
                 else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
                     daysMenus[2] = item;
             }
-            for(menuItemSchedule mm:daysMenus){
-                System.out.println(mm.getDescription());
-            }
+
 
 
             comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
@@ -407,9 +412,7 @@ public class adminSight extends JFrame{
                 else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
                     daysMenus[2] = item;
             }
-            for(menuItemSchedule mm:daysMenus){
-                System.out.println(mm.getDescription());
-            }
+
 
 
             comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
@@ -429,9 +432,6 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-            for(menuItemSchedule mm:daysMenus){
-                System.out.println(mm.getDescription());
-            }
 
             comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
             comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
@@ -450,9 +450,6 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-for(menuItemSchedule mm:daysMenus){
-    System.out.println(mm.getDescription());
-}
             comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
             comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
             comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
@@ -463,6 +460,15 @@ for(menuItemSchedule mm:daysMenus){
         }
     }
 
+    public void wrongPriceMessage(){
+        JOptionPane.showMessageDialog(this, "Kein gültiger Preis eingegeben!");
+    }
+    public void successMessage(){
+        JOptionPane.showMessageDialog(this, "Aktion erfolgreich!");
+    }
+    public void generalErrorMessage(){
+        JOptionPane.showMessageDialog(this, "Aktion fehlgeschlagen. Bitte erneut versuchen!");
+    }
 
 
     public void buildWindow(String title){

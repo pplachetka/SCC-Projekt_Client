@@ -85,7 +85,7 @@ public class dataConnection {
     }
 
 
-    public void sendNewMenu(String description, String price) throws Exception {
+    public int sendNewMenu(String description, String price) throws Exception {
 
         URL newMenu = new URL(URI + "admin/setMenuItem");
 
@@ -97,16 +97,17 @@ public class dataConnection {
             con.setDoOutput(true);
 
             OutputStream os = con.getOutputStream();
-            byte[] streamline = ("description="+description+"&costs="+price).getBytes();
+            byte[] streamline = ("description="+description+"&costs="+price+"&token="+wima.getServicetoken()).getBytes();
             os.write(streamline);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
+            return con.getResponseCode();
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
+        return 0;
     }
 
     public void sendMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
@@ -184,6 +185,8 @@ public class dataConnection {
             }
 
             Gson gson = new Gson();
+
+            System.out.println(sb.toString());
 
             return gson.fromJson(sb.toString(), menuItemSchedule[].class);
 

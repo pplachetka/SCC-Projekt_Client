@@ -2,6 +2,8 @@ import backend.user;
 import com.google.gson.Gson;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 
 public class mainframe extends JFrame{
@@ -64,6 +66,14 @@ public class mainframe extends JFrame{
             else
                 JOptionPane.showMessageDialog(this, "Keine korrekte Eingabe der Logindaten getätigt!");
 
+        });
+        passwordField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    anmeldenButton.doClick();
+                }
+            }
         });
     }
 
