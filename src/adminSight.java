@@ -355,89 +355,110 @@ public class adminSight extends JFrame{
         LocalDate date = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Integer.parseInt(weekofyearLabel.getText()));
         LocalDate weekday = date.with(DayOfWeek.MONDAY);
 
+        try {
 
-        for(menuItemSchedule item : serverSchedule){
-            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
-                daysMenus[0] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
-                daysMenus[1] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
-                daysMenus[2] = item;
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+
+            if(daysMenus[0] != null)
+            comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
+            comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
+            comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
+/*
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.TUESDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+            for(menuItemSchedule mm:daysMenus){
+                System.out.println(mm.getDescription());
+            }
+
+
+            comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
+            comboBox5.getModel().setSelectedItem(daysMenus[1].getDescription());
+            comboBox6.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.WEDNESDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+            for(menuItemSchedule mm:daysMenus){
+                System.out.println(mm.getDescription());
+            }
+
+
+            comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
+            comboBox8.getModel().setSelectedItem(daysMenus[1].getDescription());
+            comboBox9.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.THURSDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+            for(menuItemSchedule mm:daysMenus){
+                System.out.println(mm.getDescription());
+            }
+
+            comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
+            comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
+            comboBox12.getModel().setSelectedItem(daysMenus[2].getDescription());
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.FRIDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+for(menuItemSchedule mm:daysMenus){
+    System.out.println(mm.getDescription());
+}
+            comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
+            comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
+            comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
+*/
         }
-
-
-        comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
-        comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
-        comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
-
-        weekday = date.with(DayOfWeek.TUESDAY);
-
-
-        for(menuItemSchedule item : serverSchedule){
-            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
-                daysMenus[0] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
-                daysMenus[1] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
-                daysMenus[2] = item;
+        catch (Exception e){
+            e.printStackTrace();
         }
-
-
-        comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
-        comboBox5.getModel().setSelectedItem(daysMenus[1].getDescription());
-        comboBox6.getModel().setSelectedItem(daysMenus[2].getDescription());
-
-        weekday = date.with(DayOfWeek.WEDNESDAY);
-
-
-        for(menuItemSchedule item : serverSchedule){
-            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
-                daysMenus[0] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
-                daysMenus[1] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
-                daysMenus[2] = item;
-        }
-
-
-        comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
-        comboBox8.getModel().setSelectedItem(daysMenus[1].getDescription());
-        comboBox9.getModel().setSelectedItem(daysMenus[2].getDescription());
-
-        weekday = date.with(DayOfWeek.THURSDAY);
-
-
-        for(menuItemSchedule item : serverSchedule){
-            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
-                daysMenus[0] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
-                daysMenus[1] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
-                daysMenus[2] = item;
-        }
-
-
-        comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
-        comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
-        comboBox12.getModel().setSelectedItem(daysMenus[2].getDescription());
-
-        weekday = date.with(DayOfWeek.FRIDAY);
-
-
-        for(menuItemSchedule item : serverSchedule){
-            if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
-                daysMenus[0] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
-                daysMenus[1] = item;
-            else if(item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
-                daysMenus[2] = item;
-        }
-
-
-        comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
-        comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
-        comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
-
     }
 
 
