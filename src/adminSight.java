@@ -263,7 +263,12 @@ public class adminSight extends JFrame{
 
                                         try {
 
-                                            wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.FRIDAY)));
+                                            int code = wm.getDc().sendMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.FRIDAY)));
+
+                                            if(code == 200){
+                                                successMessage();
+                                            }
+                                            else generalErrorMessage();
 
                                         } catch (MalformedURLException ex) {
                                             ex.printStackTrace();

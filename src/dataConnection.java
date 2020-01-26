@@ -110,7 +110,7 @@ public class dataConnection {
         return 0;
     }
 
-    public void sendMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
+    public int sendMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
 
         URL sendDayURL = new URL(URI + "schedule/setMenuItemSchedule");
 
@@ -159,10 +159,14 @@ public class dataConnection {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
+            int code = con.getResponseCode();
+
+            return code;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        return 0;
     }
 
     public menuItemSchedule[] getMenuItemSchedule(String startDate, String endDate) throws MalformedURLException {

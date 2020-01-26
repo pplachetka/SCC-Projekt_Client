@@ -26,7 +26,7 @@ public class mainframe extends JFrame{
                 user jsonuser = null;
 
                 try {
-                    jsonstring = dc.loginUser(textField1.getText(), String.valueOf(passwordField1.getPassword()));
+                    jsonstring = dc.loginUser(textField1.getText(), String.valueOf(passwordField1.getPassword().hashCode()));
                 } catch (MalformedURLException ex) {
                     ex.printStackTrace();
                 }
