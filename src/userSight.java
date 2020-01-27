@@ -69,6 +69,7 @@ public class userSight extends JFrame{
 
     MenuItem[] menuList;
     LocalDate ld;
+    menuItemSchedule[] serverSchedule;
 
 
 
@@ -129,6 +130,7 @@ public class userSight extends JFrame{
 
 
         this.pack();
+        fillWeek();
 
 
         wocheZurückButton.addActionListener(new ActionListener() {
@@ -225,7 +227,139 @@ public class userSight extends JFrame{
             }
 
         });
+
+
     }
+
+    /**
+    private void fillWeek(){
+        menuItemSchedule daysMenus[] = new menuItemSchedule[3];
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+        LocalDate date = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Integer.parseInt(weekofyearLabel.getText()));
+        LocalDate weekday = date.with(DayOfWeek.MONDAY);
+
+        try {
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+
+            if(daysMenus[0] != null){
+                menü1RadioButton.setText(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
+                menü2RadioButton.setText(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
+                menü3RadioButton.setText(daysMenus[2].getDescription());
+            }
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.TUESDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+
+            if(daysMenus[0] != null){
+                menü4RadioButton.setText(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
+                menü5RadioButton.setText(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
+                menü6RadioButton.setText(daysMenus[2].getDescription());
+            }
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.WEDNESDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+
+            if(daysMenus[0] != null){
+                menü7RadioButton.setText(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
+                menü8RadioButton.setText(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
+                menü9RadioButton.setText(daysMenus[2].getDescription());
+            }
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.THURSDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+            if(daysMenus[0] != null){
+                menü10RadioButton.setText(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
+                menü11RadioButton.setText(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
+                menü12RadioButton.setText(daysMenus[2].getDescription());
+            }
+
+            daysMenus = new menuItemSchedule[3];
+            weekday = date.with(DayOfWeek.FRIDAY);
+
+
+            for (menuItemSchedule item : serverSchedule) {
+                if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("1"))
+                    daysMenus[0] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("2"))
+                    daysMenus[1] = item;
+                else if (item.getDate().equals(dtf.format(weekday)) && item.getPosition().equals("3"))
+                    daysMenus[2] = item;
+            }
+
+            if(daysMenus[0] != null){
+                menü13RadioButton.setText(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
+                menü14RadioButton.setText(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
+                menü15RadioButton.setText(daysMenus[2].getDescription());
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+     **/
 
     public void buildWindow(String title){
         this.setTitle(title);
