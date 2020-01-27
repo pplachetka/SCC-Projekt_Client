@@ -2,6 +2,7 @@ import backend.MenuItem;
 import backend.menuItemSchedule;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -273,12 +274,18 @@ public class userSight extends JFrame{
 
             if(daysMenus[0] != null){
                 menü1RadioButton.setText(daysMenus[0].getDescription());
+                menü1RadioButton.setForeground(Color.black);
+                menü1RadioButton.setEnabled(true);
             }
             if(daysMenus[1] != null) {
                 menü2RadioButton.setText(daysMenus[1].getDescription());
+                menü2RadioButton.setForeground(Color.black);
+                menü2RadioButton.setEnabled(true);
             }
             if(daysMenus[2] != null){
                 menü3RadioButton.setText(daysMenus[2].getDescription());
+                menü3RadioButton.setForeground(Color.black);
+                menü3RadioButton.setEnabled(true);
             }
 
             daysMenus = new menuItemSchedule[3];
@@ -297,12 +304,19 @@ public class userSight extends JFrame{
 
             if(daysMenus[0] != null){
                 menü4RadioButton.setText(daysMenus[0].getDescription());
+                menü4RadioButton.setForeground(Color.black);
+                menü4RadioButton.setEnabled(true);
             }
             if(daysMenus[1] != null) {
                 menü5RadioButton.setText(daysMenus[1].getDescription());
+                menü5RadioButton.setForeground(Color.black);
+                menü5RadioButton.setEnabled(true);
+
             }
             if(daysMenus[2] != null){
                 menü6RadioButton.setText(daysMenus[2].getDescription());
+                menü6RadioButton.setForeground(Color.black);
+                menü6RadioButton.setEnabled(true);
             }
             daysMenus = new menuItemSchedule[3];
             weekday = date.with(DayOfWeek.WEDNESDAY);
@@ -320,12 +334,18 @@ public class userSight extends JFrame{
 
             if(daysMenus[0] != null){
                 menü7RadioButton.setText(daysMenus[0].getDescription());
+                menü7RadioButton.setForeground(Color.black);
+                menü7RadioButton.setEnabled(true);
             }
             if(daysMenus[1] != null) {
                 menü8RadioButton.setText(daysMenus[1].getDescription());
+                menü8RadioButton.setForeground(Color.black);
+                menü8RadioButton.setEnabled(true);
             }
             if(daysMenus[2] != null){
                 menü9RadioButton.setText(daysMenus[2].getDescription());
+                menü9RadioButton.setForeground(Color.black);
+                menü9RadioButton.setEnabled(true);
             }
 
             daysMenus = new menuItemSchedule[3];
@@ -343,12 +363,18 @@ public class userSight extends JFrame{
 
             if(daysMenus[0] != null){
                 menü10RadioButton.setText(daysMenus[0].getDescription());
+                menü10RadioButton.setForeground(Color.black);
+                menü10RadioButton.setEnabled(true);
             }
             if(daysMenus[1] != null) {
                 menü11RadioButton.setText(daysMenus[1].getDescription());
+                menü11RadioButton.setForeground(Color.black);
+                menü11RadioButton.setEnabled(true);
             }
             if(daysMenus[2] != null){
                 menü12RadioButton.setText(daysMenus[2].getDescription());
+                menü12RadioButton.setForeground(Color.black);
+                menü12RadioButton.setEnabled(true);
             }
 
             daysMenus = new menuItemSchedule[3];
@@ -366,12 +392,18 @@ public class userSight extends JFrame{
 
             if(daysMenus[0] != null){
                 menü13RadioButton.setText(daysMenus[0].getDescription());
+                menü13RadioButton.setForeground(Color.black);
+                menü13RadioButton.setEnabled(true);
             }
             if(daysMenus[1] != null) {
                 menü14RadioButton.setText(daysMenus[1].getDescription());
+                menü14RadioButton.setForeground(Color.black);
+                menü14RadioButton.setEnabled(true);
             }
             if(daysMenus[2] != null){
                 menü15RadioButton.setText(daysMenus[2].getDescription());
+                menü15RadioButton.setForeground(Color.black);
+                menü15RadioButton.setEnabled(true);
             }
         }
         catch (Exception e){
@@ -399,6 +431,48 @@ public class userSight extends JFrame{
         menü13RadioButton.setText("kein Menü verfügbar");
         menü14RadioButton.setText("kein Menü verfügbar");
         menü15RadioButton.setText("kein Menü verfügbar");
+
+
+        menü1RadioButton.setForeground(Color.gray);
+        menü2RadioButton.setForeground(Color.gray);
+        menü3RadioButton.setForeground(Color.gray);
+
+        menü4RadioButton.setForeground(Color.gray);
+        menü5RadioButton.setForeground(Color.gray);
+        menü6RadioButton.setForeground(Color.gray);
+
+        menü7RadioButton.setForeground(Color.gray);
+        menü8RadioButton.setForeground(Color.gray);
+        menü9RadioButton.setForeground(Color.gray);
+
+        menü10RadioButton.setForeground(Color.gray);
+        menü11RadioButton.setForeground(Color.gray);
+        menü12RadioButton.setForeground(Color.gray);
+
+        menü13RadioButton.setForeground(Color.gray);
+        menü14RadioButton.setForeground(Color.gray);
+        menü15RadioButton.setForeground(Color.gray);
+
+
+        menü1RadioButton.setEnabled(false);
+        menü2RadioButton.setEnabled(false);
+        menü3RadioButton.setEnabled(false);
+
+        menü4RadioButton.setEnabled(false);
+        menü5RadioButton.setEnabled(false);
+        menü6RadioButton.setEnabled(false);
+
+        menü7RadioButton.setEnabled(false);
+        menü8RadioButton.setEnabled(false);
+        menü9RadioButton.setEnabled(false);
+
+        menü10RadioButton.setEnabled(false);
+        menü11RadioButton.setEnabled(false);
+        menü12RadioButton.setEnabled(false);
+
+        menü13RadioButton.setEnabled(false);
+        menü14RadioButton.setEnabled(false);
+        menü15RadioButton.setEnabled(false);
     }
 
 
