@@ -41,6 +41,26 @@ public class userSight extends JFrame{
     private JRadioButton menü3RadioButton;
     private JRadioButton Menü4RadioButton;
 
+    ButtonGroup buttonGroup = new ButtonGroup();
+
+    public void setButtonGroup() {
+        buttonGroup.add(menü1RadioButton);
+        buttonGroup.add(menü2RadioButton);
+        buttonGroup.add(menü3RadioButton);
+        buttonGroup.add(menü4RadioButton);
+        buttonGroup.add(menü5RadioButton);
+        buttonGroup.add(menü6RadioButton);
+        buttonGroup.add(menü7RadioButton);
+        buttonGroup.add(menü8RadioButton);
+        buttonGroup.add(menü9RadioButton);
+        buttonGroup.add(menü10RadioButton);
+        buttonGroup.add(menü11RadioButton);
+        buttonGroup.add(menü12RadioButton);
+        buttonGroup.add(menü13RadioButton);
+        buttonGroup.add(menü14RadioButton);
+        buttonGroup.add(menü15RadioButton);
+    };
+
 
     private JButton wocheVorButton;
     private JButton bestellungAbschickenButton;
@@ -80,7 +100,7 @@ public class userSight extends JFrame{
         wm = manager;
         buildWindow(title);
         LocalDate ld = LocalDate.now();
-        menuList = wm.getDc().getMenuListUser();
+        menuList = wm.getDc().getMenuList();
 
         weekofyearLabel.setText(String.valueOf(ld.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)));
         yearLabel.setText(String.valueOf(ld.getYear()));
@@ -473,6 +493,9 @@ public class userSight extends JFrame{
         menü13RadioButton.setEnabled(false);
         menü14RadioButton.setEnabled(false);
         menü15RadioButton.setEnabled(false);
+
+        setButtonGroup();
+        buttonGroup.clearSelection();
     }
 
 
