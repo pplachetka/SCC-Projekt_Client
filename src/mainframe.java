@@ -48,7 +48,11 @@ public class mainframe extends JFrame{
                         break;
 
                     case 0:
-                        wm.buildUsersight();
+                        try {
+                            wm.buildUsersight();
+                        } catch (MalformedURLException ex) {
+                            ex.printStackTrace();
+                        }
 
                         this.setVisible(false);
                         break;

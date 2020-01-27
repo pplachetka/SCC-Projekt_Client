@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.time.temporal.IsoFields;
+import java.time.temporal.*;
 
 import backend.MenuItem;
 import backend.menuItemSchedule;
@@ -24,8 +24,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.IsoFields;
-import java.time.temporal.TemporalField;
-import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -65,8 +63,8 @@ public class userSight extends JFrame{
     private JPanel donnerstag;
     private JPanel freitag;
     private JLabel yearLabel;
-    private windowManager wm;
 
+    windowManager wm;
     MenuItem[] menuList;
     LocalDate ld;
     menuItemSchedule[] serverSchedule;
@@ -77,10 +75,11 @@ public class userSight extends JFrame{
 
 
 
-    public userSight(String title, windowManager manager){
+    public userSight(String title, windowManager manager) throws MalformedURLException {
         wm = manager;
         buildWindow(title);
         LocalDate ld = LocalDate.now();
+        menuList = wm.getDc().getMenuList();
 
         weekofyearLabel.setText(String.valueOf(ld.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)));
         yearLabel.setText(String.valueOf(ld.getYear()));
@@ -106,41 +105,33 @@ public class userSight extends JFrame{
         freitag.setBorder(new TitledBorder(friday));
 
 
+                LocalDate dayOfWeek;
+                dayOfWeek = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+                String start = dtf.format(dayOfWeek.with(DayOfWeek.MONDAY));
+                String end = dtf.format(dayOfWeek.with(DayOfWeek.FRIDAY));
+                serverSchedule = wm.getDc().getMenuItemSchedule(start, end);
+
+
+
+
         //  menuList = wm.getDc().getMenuList();
 
-        menü1RadioButton.setText("geilstes Menü 1");
-        menü2RadioButton.setText("geilstes Menü 2");
-        menü3RadioButton.setText("geilstes Menü 3");
-
-        menü4RadioButton.setText("geilstes Menü 4");
-        menü5RadioButton.setText("geilstes Menü 5");
-        menü6RadioButton.setText("geilstes Menü 6");
-
-        menü7RadioButton.setText("geilstes Menü 7");
-        menü8RadioButton.setText("geilstes Menü 8");
-        menü9RadioButton.setText("geilstes Menü 9");
-
-        menü10RadioButton.setText("geilstes Menü 10");
-        menü11RadioButton.setText("geilstes Menü 11");
-        menü12RadioButton.setText("geilstes Menü 12");
-
-        menü13RadioButton.setText("geilstes Menü 13");
-        menü14RadioButton.setText("geilstes Menü 14");
-        menü15RadioButton.setText("geilstes Menü 15");
 
 
-        this.pack();
+
+        setTexts();
         fillWeek();
 
+        this.pack();
 
         wocheZurückButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(actionEvent.getSource() == wocheZurückButton){
-                    if(Integer.parseInt(weekofyearLabel.getText()) >= 2){
+                if(actionEvent.getSource() == wocheZurückButton) {
+                    if (Integer.parseInt(weekofyearLabel.getText()) >= 2) {
                         weekofyearLabel.setText(String.valueOf(Integer.parseInt(weekofyearLabel.getText()) - 1));
-                    }
-                    else{
+                    } else {
                         weekofyearLabel.setText("53");
                         yearLabel.setText(String.valueOf(Integer.parseInt(yearLabel.getText()) - 1));
                     }
@@ -167,10 +158,25 @@ public class userSight extends JFrame{
                     String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
                     freitag.setBorder(new TitledBorder(friday));
 
+                    String start = dtf.format(weekback.with(DayOfWeek.MONDAY));
+                    String end = dtf.format(weekback.with(DayOfWeek.FRIDAY));
+                    try {
+
+                        serverSchedule = wm.getDc().getMenuItemSchedule(start, end);
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
                 }
 
-            }
-        });
+                    setTexts();
+                    fillWeek();
+
+                }
+
+            });
+
 
         wocheVorButton.addActionListener(new ActionListener() {
             @Override
@@ -206,6 +212,19 @@ public class userSight extends JFrame{
                     LocalDate fifthDay = weekahead.with(DayOfWeek.FRIDAY);
                     String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     freitag.setBorder(new TitledBorder(friday));
+
+                    String start = dtf.format(weekahead.with(DayOfWeek.MONDAY));
+                    String end = dtf.format(weekahead.with(DayOfWeek.FRIDAY));
+                    try {
+
+                        serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
+                    setTexts();
+                    fillWeek();
                 }
             }
         });
@@ -231,11 +250,12 @@ public class userSight extends JFrame{
 
     }
 
-    /**
+
     private void fillWeek(){
         menuItemSchedule daysMenus[] = new menuItemSchedule[3];
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
-        LocalDate date = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Integer.parseInt(weekofyearLabel.getText()));
+        LocalDate ld = LocalDate.now();
+        LocalDate date = ld.with((TemporalField) IsoFields.WEEK_OF_WEEK_BASED_YEAR, Integer.parseInt(weekofyearLabel.getText()));
         LocalDate weekday = date.with(DayOfWeek.MONDAY);
 
         try {
@@ -359,7 +379,28 @@ public class userSight extends JFrame{
         }
     }
 
-     **/
+    private void setTexts(){
+        menü1RadioButton.setText("kein Menü verfügbar");
+        menü2RadioButton.setText("kein Menü verfügbar");
+        menü3RadioButton.setText("kein Menü verfügbar");
+
+        menü4RadioButton.setText("kein Menü verfügbar");
+        menü5RadioButton.setText("kein Menü verfügbar");
+        menü6RadioButton.setText("kein Menü verfügbar");
+
+        menü7RadioButton.setText("kein Menü verfügbar");
+        menü8RadioButton.setText("kein Menü verfügbar");
+        menü9RadioButton.setText("kein Menü verfügbar");
+
+        menü10RadioButton.setText("kein Menü verfügbar");
+        menü11RadioButton.setText("kein Menü verfügbar");
+        menü12RadioButton.setText("kein Menü verfügbar");
+
+        menü13RadioButton.setText("kein Menü verfügbar");
+        menü14RadioButton.setText("kein Menü verfügbar");
+        menü15RadioButton.setText("kein Menü verfügbar");
+    }
+
 
     public void buildWindow(String title){
         this.setTitle(title);

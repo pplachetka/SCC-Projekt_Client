@@ -30,7 +30,7 @@ public class windowManager {
         mainframe = new mainframe("Kantine MNP - Login", this);
     }
 
-    public void buildUsersight(){
+    public void buildUsersight() throws MalformedURLException{
         usersight = new userSight("Bestellung - Kantine MNP", this);
     }
 

@@ -364,9 +364,6 @@ public class adminSight extends JFrame{
 
         });
 
-
-
-
         abmeldenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -450,7 +447,6 @@ public class adminSight extends JFrame{
 
             }
         });
-
 
         wocheVorButton.addActionListener(new ActionListener() {
             @Override
@@ -643,13 +639,14 @@ public class adminSight extends JFrame{
         comboBox15.setSelectedIndex(-1);
     }
 
-
     public void wrongPriceMessage(){
         JOptionPane.showMessageDialog(this, "Kein gültiger Preis eingegeben!");
     }
+
     public void successMessage(){
         JOptionPane.showMessageDialog(this, "Aktion erfolgreich!");
     }
+
     public void generalErrorMessage(){ JOptionPane.showMessageDialog(this, "Aktion fehlgeschlagen. Bitte erneut versuchen!"); }
 
     public void fillBoxes(){
@@ -689,7 +686,6 @@ public class adminSight extends JFrame{
             comboBox14.removeAllItems();
             comboBox15.removeAllItems();
     }
-
 
     public void buildWindow(String title){
         this.setTitle(title);
