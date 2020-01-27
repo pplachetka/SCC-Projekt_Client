@@ -72,12 +72,6 @@
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                   </hspacer>
-                  <vspacer id="7844f">
-                    <constraints>
-                      <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                      <gridbag weightx="0.0" weighty="0.0"/>
-                    </constraints>
-                  </vspacer>
                   <hspacer id="55922">
                     <constraints>
                       <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -311,7 +305,7 @@
                   </hspacer>
                   <component id="c6243" class="javax.swing.JButton" binding="bestellungAbschickenButton" default-binding="true">
                     <constraints>
-                      <grid row="5" column="5" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="5" column="3" row-span="1" col-span="9" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties>
@@ -323,7 +317,7 @@
                   <grid id="8697a" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="10" left="10" bottom="10" right="10"/>
                     <constraints>
-                      <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="2" row-span="1" col-span="10" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties/>
@@ -369,6 +363,12 @@
                       </component>
                     </children>
                   </grid>
+                  <vspacer id="7844f">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                  </vspacer>
                 </children>
               </grid>
             </children>
