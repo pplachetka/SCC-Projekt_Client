@@ -2,6 +2,7 @@ import backend.MenuItem;
 import backend.menuItemSchedule;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
@@ -138,6 +139,10 @@ public class adminSight extends JFrame{
 
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////TUESDAY
 
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
+
                         if (!(comboBox4.getSelectedIndex() == -1)
                             || !(comboBox5.getSelectedIndex() == -1)
                             || !(comboBox6.getSelectedIndex() == -1)) {
@@ -166,6 +171,10 @@ public class adminSight extends JFrame{
                         }
 
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WEDNESDAY
+
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
 
                             if (!(comboBox7.getSelectedIndex() == -1)
                                 || !(comboBox8.getSelectedIndex() == -1)
@@ -196,6 +205,10 @@ public class adminSight extends JFrame{
 
                                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////THURSDAY
 
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
+
                                 if (!(comboBox10.getSelectedIndex() == -1)
                                      || !(comboBox11.getSelectedIndex() == -1)
                                      || !(comboBox12.getSelectedIndex() == -1)) {
@@ -224,6 +237,10 @@ public class adminSight extends JFrame{
                                 }
 
                                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////FRIDAY
+
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
 
                                     if (!(comboBox13.getSelectedIndex() == -1)
                                             || !(comboBox14.getSelectedIndex() == -1)
@@ -369,9 +386,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -389,9 +410,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox5.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox6.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -409,9 +434,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox8.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox9.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -428,9 +457,13 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox12.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -447,9 +480,13 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
