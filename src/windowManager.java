@@ -15,8 +15,14 @@ public class windowManager {
     private backend.user user;
 
     public static void main(String[] args) {
-        windowManager windowManager = new windowManager();
-        windowManager.buildMainframe();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                windowManager windowManager = new windowManager();
+                windowManager.buildMainframe();
+            }
+        });
+
     }
 
 
