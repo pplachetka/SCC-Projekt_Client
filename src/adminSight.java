@@ -116,28 +116,10 @@ public class adminSight extends JFrame{
         comboBox14.insertItemAt("",0);
         comboBox15.insertItemAt("",0);
 
+        fillBoxes();
 
-
-        for(MenuItem menu : menuList){
-            comboBox1.addItem(menu.getDescription());
-            comboBox2.addItem(menu.getDescription());
-            comboBox3.addItem(menu.getDescription());
-            comboBox4.addItem(menu.getDescription());
-            comboBox5.addItem(menu.getDescription());
-            comboBox6.addItem(menu.getDescription());
-            comboBox7.addItem(menu.getDescription());
-            comboBox8.addItem(menu.getDescription());
-            comboBox9.addItem(menu.getDescription());
-            comboBox10.addItem(menu.getDescription());
-            comboBox11.addItem(menu.getDescription());
-            comboBox12.addItem(menu.getDescription());
-            comboBox13.addItem(menu.getDescription());
-            comboBox14.addItem(menu.getDescription());
-            comboBox15.addItem(menu.getDescription());
-
-            fillWeek();
-
-        }
+        fillWeek();
+        pack();
 
         menüEinstellenButton.addActionListener(new ActionListener() {
             @Override
@@ -188,6 +170,10 @@ public class adminSight extends JFrame{
 
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////TUESDAY
 
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
+
                         if (!(comboBox4.getSelectedIndex() == -1)
                             || !(comboBox5.getSelectedIndex() == -1)
                             || !(comboBox6.getSelectedIndex() == -1)) {
@@ -216,6 +202,10 @@ public class adminSight extends JFrame{
                         }
 
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WEDNESDAY
+
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
 
                             if (!(comboBox7.getSelectedIndex() == -1)
                                 || !(comboBox8.getSelectedIndex() == -1)
@@ -246,6 +236,10 @@ public class adminSight extends JFrame{
 
                                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////THURSDAY
 
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
+
                                 if (!(comboBox10.getSelectedIndex() == -1)
                                      || !(comboBox11.getSelectedIndex() == -1)
                                      || !(comboBox12.getSelectedIndex() == -1)) {
@@ -274,6 +268,10 @@ public class adminSight extends JFrame{
                                 }
 
                                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////FRIDAY
+
+                    menu1ID = "";
+                    menu2ID = "";
+                    menu3ID = "";
 
                                     if (!(comboBox13.getSelectedIndex() == -1)
                                             || !(comboBox14.getSelectedIndex() == -1)
@@ -338,6 +336,9 @@ public class adminSight extends JFrame{
                         int status= wm.getDc().sendNewMenu(textField1.getText(), €TextField.getText());
 
                         if(status == 200){
+                            clearBoxes();
+                            menuList = wm.getDc().getMenuList();
+                            fillBoxes();
                             successMessage();
                         }
                         else generalErrorMessage();
@@ -471,9 +472,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox1.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox2.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox3.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -491,9 +496,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox4.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox5.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox6.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -511,9 +520,13 @@ public class adminSight extends JFrame{
             }
 
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox7.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox8.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox9.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -530,9 +543,13 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox10.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox11.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox12.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -549,9 +566,13 @@ public class adminSight extends JFrame{
                     daysMenus[2] = item;
             }
 
-            if(daysMenus[0] != null && daysMenus[1] != null && daysMenus[2] != null) {
+            if(daysMenus[0] != null){
                 comboBox13.getModel().setSelectedItem(daysMenus[0].getDescription());
+            }
+            if(daysMenus[1] != null) {
                 comboBox14.getModel().setSelectedItem(daysMenus[1].getDescription());
+            }
+            if(daysMenus[2] != null){
                 comboBox15.getModel().setSelectedItem(daysMenus[2].getDescription());
             }
 
@@ -579,14 +600,51 @@ public class adminSight extends JFrame{
         comboBox15.setSelectedIndex(-1);
     }
 
+
     public void wrongPriceMessage(){
         JOptionPane.showMessageDialog(this, "Kein gültiger Preis eingegeben!");
     }
     public void successMessage(){
         JOptionPane.showMessageDialog(this, "Aktion erfolgreich!");
     }
-    public void generalErrorMessage(){
-        JOptionPane.showMessageDialog(this, "Aktion fehlgeschlagen. Bitte erneut versuchen!");
+    public void generalErrorMessage(){ JOptionPane.showMessageDialog(this, "Aktion fehlgeschlagen. Bitte erneut versuchen!"); }
+
+    public void fillBoxes(){
+        for(MenuItem menu : menuList){
+            comboBox1.addItem(menu.getDescription());
+            comboBox2.addItem(menu.getDescription());
+            comboBox3.addItem(menu.getDescription());
+            comboBox4.addItem(menu.getDescription());
+            comboBox5.addItem(menu.getDescription());
+            comboBox6.addItem(menu.getDescription());
+            comboBox7.addItem(menu.getDescription());
+            comboBox8.addItem(menu.getDescription());
+            comboBox9.addItem(menu.getDescription());
+            comboBox10.addItem(menu.getDescription());
+            comboBox11.addItem(menu.getDescription());
+            comboBox12.addItem(menu.getDescription());
+            comboBox13.addItem(menu.getDescription());
+            comboBox14.addItem(menu.getDescription());
+            comboBox15.addItem(menu.getDescription());
+        }
+    }
+
+    public void clearBoxes(){
+            comboBox1.removeAllItems();
+            comboBox2.removeAllItems();
+            comboBox3.removeAllItems();
+            comboBox4.removeAllItems();
+            comboBox5.removeAllItems();
+            comboBox6.removeAllItems();
+            comboBox7.removeAllItems();
+            comboBox8.removeAllItems();
+            comboBox9.removeAllItems();
+            comboBox10.removeAllItems();
+            comboBox11.removeAllItems();
+            comboBox12.removeAllItems();
+            comboBox13.removeAllItems();
+            comboBox14.removeAllItems();
+            comboBox15.removeAllItems();
     }
 
 

@@ -117,7 +117,7 @@ public class dataConnection {
         schedulePacket sp = new schedulePacket(wima.getServicetoken());
 
 
-        if(menuItemId1 != null){
+        if(!menuItemId1.equals("")){
             menuItemSchedule m1 = new menuItemSchedule();
             m1.setPosition("1");
             m1.setDate(date);
@@ -125,7 +125,7 @@ public class dataConnection {
 
             sp.addToList(m1);
         }
-        if(menuItemId2 != null){
+        if(!menuItemId2.equals("")){
             menuItemSchedule m2 = new menuItemSchedule();
             m2.setPosition("2");
             m2.setDate(date);
@@ -133,7 +133,7 @@ public class dataConnection {
 
             sp.addToList(m2);
         }
-        if(menuItemId3 != null){
+        if(!menuItemId3.equals("")){
             menuItemSchedule m3 = new menuItemSchedule();
             m3.setPosition("3");
             m3.setDate(date);
