@@ -110,6 +110,9 @@ public class dataConnection {
         return 0;
     }
 
+
+
+
     public int sendMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
 
         URL sendDayURL = new URL(URI + "schedule/setMenuItemSchedule");
@@ -125,6 +128,7 @@ public class dataConnection {
 
             sp.addToList(m1);
         }
+
         if(!menuItemId2.equals("")){
             menuItemSchedule m2 = new menuItemSchedule();
             m2.setPosition("2");
@@ -133,6 +137,7 @@ public class dataConnection {
 
             sp.addToList(m2);
         }
+
         if(!menuItemId3.equals("")){
             menuItemSchedule m3 = new menuItemSchedule();
             m3.setPosition("3");
@@ -141,6 +146,7 @@ public class dataConnection {
 
             sp.addToList(m3);
         }
+
 
         Gson gson = new Gson();
 
@@ -168,6 +174,69 @@ public class dataConnection {
         }
         return 0;
     }
+
+    public int deleteMenusOfDay(String menuItemId1, String menuItemId2, String menuItemId3, String date) throws MalformedURLException {
+
+        URL sendDayURL = new URL(URI + "schedule/setMenuItemSchedule");
+
+        schedulePacket sp = new schedulePacket(wima.getServicetoken());
+
+
+        if(menuItemId1.equals("")){
+            menuItemSchedule m1 = new menuItemSchedule();
+            m1.setPosition("1");
+            m1.setDate(date);
+            m1.setMenuItemID(menuItemId1);
+
+            sp.addToList(m1);
+        }
+
+        if(menuItemId2.equals("")){
+            menuItemSchedule m2 = new menuItemSchedule();
+            m2.setPosition("2");
+            m2.setDate(date);
+            m2.setMenuItemID(menuItemId2);
+
+            sp.addToList(m2);
+        }
+
+        if(menuItemId3.equals("")){
+            menuItemSchedule m3 = new menuItemSchedule();
+            m3.setPosition("3");
+            m3.setDate(date);
+            m3.setMenuItemID(menuItemId3);
+
+            sp.addToList(m3);
+        }
+
+
+        Gson gson = new Gson();
+
+        System.out.println(gson.toJson(sp));
+
+        try{
+            HttpsURLConnection con = (HttpsURLConnection) sendDayURL.openConnection();
+
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setDoOutput(true);
+
+            OutputStream os = con.getOutputStream();
+            byte[] streamline = (gson.toJson(sp).getBytes());
+            os.write(streamline);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            int code = con.getResponseCode();
+
+            return code;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
 
     public menuItemSchedule[] getMenuItemSchedule(String startDate, String endDate) throws MalformedURLException {
 

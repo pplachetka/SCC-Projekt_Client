@@ -315,6 +315,63 @@ public class adminSight extends JFrame{
 
             });
 
+        menüLöschenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                LocalDate date = LocalDate.of(Integer.parseInt(yearLabel.getText()), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
+                LocalDate dayInWeek = date.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYYMMdd");
+
+                String menu1ID = "";
+                String menu2ID = "";
+                String menu3ID = "";
+
+                try {
+
+                    int code1 = wm.getDc().deleteMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.MONDAY)));
+                    int code2 = wm.getDc().deleteMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.TUESDAY)));
+                    int code3 = wm.getDc().deleteMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.WEDNESDAY)));
+                    int code4 = wm.getDc().deleteMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.THURSDAY)));
+                    int code5 = wm.getDc().deleteMenusOfDay(menu1ID, menu2ID, menu3ID, dtf.format(dayInWeek.with(DayOfWeek.FRIDAY)));
+
+
+
+                    if(code1 == 200 && code2 == 200 && code3 == 200 && code4 == 200 && code5 == 200){
+                        successMessage();
+                        comboBox1.setSelectedItem("");
+                        comboBox2.setSelectedItem("");
+                        comboBox3.setSelectedItem("");
+                        comboBox4.setSelectedItem("");
+                        comboBox5.setSelectedItem("");
+                        comboBox6.setSelectedItem("");
+                        comboBox7.setSelectedItem("");
+                        comboBox8.setSelectedItem("");
+                        comboBox9.setSelectedItem("");
+                        comboBox10.setSelectedItem("");
+                        comboBox11.setSelectedItem("");
+                        comboBox12.setSelectedItem("");
+                        comboBox13.setSelectedItem("");
+                        comboBox14.setSelectedItem("");
+                        comboBox15.setSelectedItem("");
+
+                    }
+                    else generalErrorMessage();
+
+                } catch (MalformedURLException ex) {
+                    ex.printStackTrace();
+                }
+
+
+            }
+
+
+        });
+
+
+
+
         abmeldenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
