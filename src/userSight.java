@@ -41,25 +41,39 @@ public class userSight extends JFrame{
     private JRadioButton menü3RadioButton;
     private JRadioButton Menü4RadioButton;
 
-    ButtonGroup buttonGroup = new ButtonGroup();
+    ButtonGroup buttonGroup1 = new ButtonGroup();
+    ButtonGroup buttonGroup2 = new ButtonGroup();
+    ButtonGroup buttonGroup3 = new ButtonGroup();
+    ButtonGroup buttonGroup4 = new ButtonGroup();
+    ButtonGroup buttonGroup5 = new ButtonGroup();
 
-    public void setButtonGroup() {
-        buttonGroup.add(menü1RadioButton);
-        buttonGroup.add(menü2RadioButton);
-        buttonGroup.add(menü3RadioButton);
-        buttonGroup.add(menü4RadioButton);
-        buttonGroup.add(menü5RadioButton);
-        buttonGroup.add(menü6RadioButton);
-        buttonGroup.add(menü7RadioButton);
-        buttonGroup.add(menü8RadioButton);
-        buttonGroup.add(menü9RadioButton);
-        buttonGroup.add(menü10RadioButton);
-        buttonGroup.add(menü11RadioButton);
-        buttonGroup.add(menü12RadioButton);
-        buttonGroup.add(menü13RadioButton);
-        buttonGroup.add(menü14RadioButton);
-        buttonGroup.add(menü15RadioButton);
+    public void setButtonGroup1() {
+        buttonGroup1.add(menü1RadioButton);
+        buttonGroup1.add(menü2RadioButton);
+        buttonGroup1.add(menü3RadioButton);
     };
+    public void setButtonGroup2() {
+        buttonGroup2.add(menü4RadioButton);
+        buttonGroup2.add(menü5RadioButton);
+        buttonGroup2.add(menü6RadioButton);
+    };
+    public void setButtonGroup3() {
+        buttonGroup3.add(menü7RadioButton);
+        buttonGroup3.add(menü8RadioButton);
+        buttonGroup3.add(menü9RadioButton);
+    };
+    public void setButtonGroup4() {
+        buttonGroup4.add(menü10RadioButton);
+        buttonGroup4.add(menü11RadioButton);
+        buttonGroup4.add(menü12RadioButton);
+    };
+    public void setButtonGroup5() {
+        buttonGroup5.add(menü13RadioButton);
+        buttonGroup5.add(menü14RadioButton);
+        buttonGroup5.add(menü15RadioButton);
+    };
+
+
 
 
     private JButton wocheVorButton;
@@ -493,8 +507,17 @@ public class userSight extends JFrame{
         menü14RadioButton.setEnabled(false);
         menü15RadioButton.setEnabled(false);
 
-        setButtonGroup();
-        buttonGroup.clearSelection();
+        setButtonGroup1();
+        setButtonGroup2();
+        setButtonGroup3();
+        setButtonGroup4();
+        setButtonGroup5();
+
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
+        buttonGroup4.clearSelection();
+        buttonGroup5.clearSelection();
     }
 
 
