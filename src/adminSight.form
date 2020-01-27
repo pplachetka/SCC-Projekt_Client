@@ -4,7 +4,9 @@
     <constraints>
       <xy x="186" y="130" width="1293" height="538"/>
     </constraints>
-    <properties/>
+    <properties>
+      <autoscrolls value="false"/>
+    </properties>
     <border type="none"/>
     <children>
       <vspacer id="d6f33">
@@ -84,6 +86,7 @@
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
+                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
@@ -92,6 +95,7 @@
                             <constraints>
                               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
+                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
@@ -100,6 +104,7 @@
                             <constraints>
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
+                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
