@@ -251,6 +251,6 @@ public class userSight extends JFrame{
         this.setVisible(true);
     }
 
-    
+
 
 }
