@@ -83,6 +83,37 @@ public class dataConnection {
         }
         return null;
     }
+    public MenuItem[] getMenuListUser() throws MalformedURLException {
+
+        URL getListURL = new URL(URI + "user/getMenuItemList?token=" + wima.getServicetoken());
+
+        try {
+
+            HttpsURLConnection con = (HttpsURLConnection) getListURL.openConnection();
+
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Accept" , "application/json");
+            con.setDoOutput(true);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line+"\n");
+            }
+
+            Gson gson = new Gson();
+
+            return gson.fromJson(sb.toString(), MenuItem[].class);
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     public int sendNewMenu(String description, String price) throws Exception {

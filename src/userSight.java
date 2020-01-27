@@ -80,7 +80,7 @@ public class userSight extends JFrame{
         wm = manager;
         buildWindow(title);
         LocalDate ld = LocalDate.now();
-        menuList = wm.getDc().getMenuList();
+        menuList = wm.getDc().getMenuListUser();
 
         weekofyearLabel.setText(String.valueOf(ld.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)));
         yearLabel.setText(String.valueOf(ld.getYear()));
