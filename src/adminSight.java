@@ -76,27 +76,22 @@ public class adminSight extends JFrame{
         LocalDate firstDay = ld.with(DayOfWeek.MONDAY);
         String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         montag.setBorder(new TitledBorder(monday));
-        System.out.println(monday);
 
         LocalDate secondDay = ld.with(DayOfWeek.TUESDAY);
         String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         dienstag.setBorder(new TitledBorder(tuesday));
-        System.out.println(tuesday);
 
         LocalDate thirdDay = ld.with(DayOfWeek.WEDNESDAY);
         String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         mittwoch.setBorder(new TitledBorder(wednesday));
-        System.out.println(wednesday);
 
         LocalDate fourthDay = ld.with(DayOfWeek.THURSDAY);
         String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         donnerstag.setBorder(new TitledBorder(thursday));
-        System.out.println(thursday);
 
         LocalDate fifthDay = ld.with(DayOfWeek.FRIDAY);
         String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         freitag.setBorder(new TitledBorder(friday));
-        System.out.println(friday);
 
 
 
