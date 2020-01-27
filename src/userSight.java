@@ -85,29 +85,24 @@ public class userSight extends JFrame{
         yearLabel.setText(String.valueOf(ld.getYear()));
 
         LocalDate firstDay = ld.with(DayOfWeek.MONDAY);
-        String monday = firstDay.format(DateTimeFormatter.ofPattern("E dd. MMM"));
+        String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         montag.setBorder(new TitledBorder(monday));
-        System.out.println(monday);
 
         LocalDate secondDay = ld.with(DayOfWeek.TUESDAY);
-        String tuesday = secondDay.format(DateTimeFormatter.ofPattern("E dd. MMM"));
+        String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         dienstag.setBorder(new TitledBorder(tuesday));
-        System.out.println(tuesday);
 
         LocalDate thirdDay = ld.with(DayOfWeek.WEDNESDAY);
-        String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("E dd. MMM"));
+        String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         mittwoch.setBorder(new TitledBorder(wednesday));
-        System.out.println(wednesday);
 
         LocalDate fourthDay = ld.with(DayOfWeek.THURSDAY);
-        String thursday = fourthDay.format(DateTimeFormatter.ofPattern("E dd. MMM"));
+        String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         donnerstag.setBorder(new TitledBorder(thursday));
-        System.out.println(thursday);
 
         LocalDate fifthDay = ld.with(DayOfWeek.FRIDAY);
-        String friday = fifthDay.format(DateTimeFormatter.ofPattern("E dd. MMM"));
+        String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
         freitag.setBorder(new TitledBorder(friday));
-        System.out.println(friday);
 
 
         //  menuList = wm.getDc().getMenuList();
@@ -128,7 +123,7 @@ public class userSight extends JFrame{
         menü11RadioButton.setText("geilstes Menü 11");
         menü12RadioButton.setText("geilstes Menü 12");
 
-        menü13RadioButton.setText("geilstes Menü 1");
+        menü13RadioButton.setText("geilstes Menü 13");
         menü14RadioButton.setText("geilstes Menü 14");
         menü15RadioButton.setText("geilstes Menü 15");
 
@@ -151,29 +146,24 @@ public class userSight extends JFrame{
                     LocalDate weekback = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
 
                     LocalDate firstDay = weekback.with(DayOfWeek.MONDAY);
-                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     montag.setBorder(new TitledBorder(monday));
-                    System.out.println(monday);
 
                     LocalDate secondDay = weekback.with(DayOfWeek.TUESDAY);
-                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     dienstag.setBorder(new TitledBorder(tuesday));
-                    System.out.println(tuesday);
 
                     LocalDate thirdDay = weekback.with(DayOfWeek.WEDNESDAY);
-                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     mittwoch.setBorder(new TitledBorder(wednesday));
-                    System.out.println(wednesday);
 
                     LocalDate fourthDay = weekback.with(DayOfWeek.THURSDAY);
                     String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
                     donnerstag.setBorder(new TitledBorder(thursday));
-                    System.out.println(thursday);
 
                     LocalDate fifthDay = weekback.with(DayOfWeek.FRIDAY);
                     String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
                     freitag.setBorder(new TitledBorder(friday));
-                    System.out.println(friday);
 
                 }
 
@@ -196,29 +186,24 @@ public class userSight extends JFrame{
                     LocalDate weekahead = ld.with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, Long.parseLong(weekofyearLabel.getText()));
 
                     LocalDate firstDay = weekahead.with(DayOfWeek.MONDAY);
-                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     montag.setBorder(new TitledBorder(monday));
-                    System.out.println(monday);
 
                     LocalDate secondDay = weekahead.with(DayOfWeek.TUESDAY);
-                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     dienstag.setBorder(new TitledBorder(tuesday));
-                    System.out.println(tuesday);
 
                     LocalDate thirdDay = weekahead.with(DayOfWeek.WEDNESDAY);
-                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     mittwoch.setBorder(new TitledBorder(wednesday));
-                    System.out.println(wednesday);
 
                     LocalDate fourthDay = weekahead.with(DayOfWeek.THURSDAY);
-                    String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     donnerstag.setBorder(new TitledBorder(thursday));
-                    System.out.println(thursday);
 
                     LocalDate fifthDay = weekahead.with(DayOfWeek.FRIDAY);
-                    String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMMM"));
                     freitag.setBorder(new TitledBorder(friday));
-                    System.out.println(friday);
                 }
             }
         });
