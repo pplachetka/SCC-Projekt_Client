@@ -2,6 +2,7 @@ import backend.MenuItem;
 import backend.menuItemSchedule;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
@@ -43,6 +44,11 @@ public class adminSight extends JFrame{
     private JButton wocheVorButton;
     private JLabel yearLabel;
     private JLabel weekofyearLabel;
+    private JPanel montag;
+    private JPanel dienstag;
+    private JPanel mittwoch;
+    private JPanel donnerstag;
+    private JPanel freitag;
     windowManager wm;
     MenuItem[] menuList;
     LocalDate ld;
@@ -64,6 +70,32 @@ public class adminSight extends JFrame{
         String start = dtf.format(dayOfWeek.with(DayOfWeek.MONDAY));
         String end = dtf.format(dayOfWeek.with(DayOfWeek.FRIDAY));
         serverSchedule = wm.getDc().getMenuItemSchedule(start,end);
+
+
+        LocalDate firstDay = ld.with(DayOfWeek.MONDAY);
+        String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+        montag.setBorder(new TitledBorder(monday));
+        System.out.println(monday);
+
+        LocalDate secondDay = ld.with(DayOfWeek.TUESDAY);
+        String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEEE dd. MMM"));
+        dienstag.setBorder(new TitledBorder(tuesday));
+        System.out.println(tuesday);
+
+        LocalDate thirdDay = ld.with(DayOfWeek.WEDNESDAY);
+        String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+        mittwoch.setBorder(new TitledBorder(wednesday));
+        System.out.println(wednesday);
+
+        LocalDate fourthDay = ld.with(DayOfWeek.THURSDAY);
+        String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+        donnerstag.setBorder(new TitledBorder(thursday));
+        System.out.println(thursday);
+
+        LocalDate fifthDay = ld.with(DayOfWeek.FRIDAY);
+        String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+        freitag.setBorder(new TitledBorder(friday));
+        System.out.println(friday);
 
 
 
@@ -295,6 +327,7 @@ public class adminSight extends JFrame{
                 }
             }
         });
+
         menüErstellenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -317,6 +350,7 @@ public class adminSight extends JFrame{
                 }
             }
         });
+
         wocheZurückButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -337,10 +371,38 @@ public class adminSight extends JFrame{
                     clear();
 
                     fillWeek();
+
+                    LocalDate firstDay = weekback.with(DayOfWeek.MONDAY);
+                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    montag.setBorder(new TitledBorder(monday));
+                    System.out.println(monday);
+
+                    LocalDate secondDay = weekback.with(DayOfWeek.TUESDAY);
+                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    dienstag.setBorder(new TitledBorder(tuesday));
+                    System.out.println(tuesday);
+
+                    LocalDate thirdDay = weekback.with(DayOfWeek.WEDNESDAY);
+                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    mittwoch.setBorder(new TitledBorder(wednesday));
+                    System.out.println(wednesday);
+
+                    LocalDate fourthDay = weekback.with(DayOfWeek.THURSDAY);
+                    String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    donnerstag.setBorder(new TitledBorder(thursday));
+                    System.out.println(thursday);
+
+                    LocalDate fifthDay = weekback.with(DayOfWeek.FRIDAY);
+                    String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    freitag.setBorder(new TitledBorder(friday));
+                    System.out.println(friday);
+
                 }
 
             }
         });
+
+
         wocheVorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -361,6 +423,31 @@ public class adminSight extends JFrame{
                     clear();
 
                     fillWeek();
+
+                    LocalDate firstDay = weekahead.with(DayOfWeek.MONDAY);
+                    String monday = firstDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    montag.setBorder(new TitledBorder(monday));
+                    System.out.println(monday);
+
+                    LocalDate secondDay = weekahead.with(DayOfWeek.TUESDAY);
+                    String tuesday = secondDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    dienstag.setBorder(new TitledBorder(tuesday));
+                    System.out.println(tuesday);
+
+                    LocalDate thirdDay = weekahead.with(DayOfWeek.WEDNESDAY);
+                    String wednesday = thirdDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    mittwoch.setBorder(new TitledBorder(wednesday));
+                    System.out.println(wednesday);
+
+                    LocalDate fourthDay = weekahead.with(DayOfWeek.THURSDAY);
+                    String thursday = fourthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    donnerstag.setBorder(new TitledBorder(thursday));
+                    System.out.println(thursday);
+
+                    LocalDate fifthDay = weekahead.with(DayOfWeek.FRIDAY);
+                    String friday = fifthDay.format(DateTimeFormatter.ofPattern("EEEE dd. MMM"));
+                    freitag.setBorder(new TitledBorder(friday));
+                    System.out.println(friday);
                 }
             }
         });
