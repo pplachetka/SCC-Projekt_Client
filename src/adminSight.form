@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="adminSight">
   <grid id="27dc6" binding="panel1" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="186" y="130" width="1194" height="538"/>
+      <xy x="186" y="130" width="1293" height="538"/>
     </constraints>
     <properties>
       <autoscrolls value="false"/>
@@ -15,19 +15,9 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>
-      <component id="14ab1" class="javax.swing.JButton" binding="abmeldenButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <icon value="icons/turn-off.png"/>
-          <text value="Abmelden"/>
-        </properties>
-      </component>
       <vspacer id="d139b">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>
@@ -55,7 +45,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="98b3b" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="98b3b" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <tabbedpane title="Pläne erstellen"/>
@@ -63,22 +53,14 @@
                 <properties/>
                 <border type="etched" title="Menüs zum Plan hinzufügen" title-justification="2"/>
                 <children>
-                  <component id="bf3a7" class="javax.swing.JButton" binding="menüEinstellenButton" default-binding="true">
-                    <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="Menü einstellen"/>
-                    </properties>
-                  </component>
                   <vspacer id="d10e7">
                     <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
                   <grid id="36d42" layout-manager="GridBagLayout">
                     <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
@@ -94,27 +76,24 @@
                         <children>
                           <component id="76852" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
                             <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
-                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
                           </component>
                           <component id="a162f" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
                             <constraints>
-                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
-                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
                           </component>
                           <component id="7f12c" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
                             <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="200" height="-1"/>
-                                <maximum-size width="200" height="-1"/>
                               </grid>
                             </constraints>
                             <properties/>
@@ -306,12 +285,12 @@
                   </grid>
                   <vspacer id="fdc45">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
                   <grid id="f3798" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
@@ -388,6 +367,31 @@
                       </grid>
                     </children>
                   </grid>
+                  <component id="14ab1" class="javax.swing.JButton" binding="abmeldenButton" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <icon value="icons/turn-off.png"/>
+                      <text value="Abmelden"/>
+                    </properties>
+                  </component>
+                  <component id="13189" class="javax.swing.JButton" binding="menüLöschenButton">
+                    <constraints>
+                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Menüs löschen"/>
+                    </properties>
+                  </component>
+                  <component id="bf3a7" class="javax.swing.JButton" binding="menüEinstellenButton" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Menüs einstellen"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <grid id="41843" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
