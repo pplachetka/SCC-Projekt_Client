@@ -96,24 +96,7 @@ public class adminSight extends JFrame{
 
 
 
-        comboBox1.insertItemAt("",0);
-        comboBox2.insertItemAt("",0);
-        comboBox3.insertItemAt("",0);
-        comboBox4.insertItemAt("",0);
-        comboBox5.insertItemAt("",0);
-        comboBox6.insertItemAt("",0);
-        comboBox7.insertItemAt("",0);
-        comboBox8.insertItemAt("",0);
-        comboBox9.insertItemAt("",0);
-        comboBox10.insertItemAt("",0);
-        comboBox11.insertItemAt("",0);
-        comboBox12.insertItemAt("",0);
-        comboBox13.insertItemAt("",0);
-        comboBox14.insertItemAt("",0);
-        comboBox15.insertItemAt("",0);
-
         fillBoxes();
-
         fillWeek();
         pack();
 
@@ -386,9 +369,10 @@ public class adminSight extends JFrame{
                         int status= wm.getDc().sendNewMenu(textField1.getText(), €TextField.getText());
 
                         if(status == 200){
-                            clearBoxes();
                             menuList = wm.getDc().getMenuList();
+                            clearBoxes();
                             fillBoxes();
+                            fillWeek();
                             successMessage();
                         }
                         else generalErrorMessage();
@@ -650,6 +634,25 @@ public class adminSight extends JFrame{
     public void generalErrorMessage(){ JOptionPane.showMessageDialog(this, "Aktion fehlgeschlagen. Bitte erneut versuchen!"); }
 
     public void fillBoxes(){
+
+        clearBoxes();
+
+        comboBox1.insertItemAt("",0);
+        comboBox2.insertItemAt("",0);
+        comboBox3.insertItemAt("",0);
+        comboBox4.insertItemAt("",0);
+        comboBox5.insertItemAt("",0);
+        comboBox6.insertItemAt("",0);
+        comboBox7.insertItemAt("",0);
+        comboBox8.insertItemAt("",0);
+        comboBox9.insertItemAt("",0);
+        comboBox10.insertItemAt("",0);
+        comboBox11.insertItemAt("",0);
+        comboBox12.insertItemAt("",0);
+        comboBox13.insertItemAt("",0);
+        comboBox14.insertItemAt("",0);
+        comboBox15.insertItemAt("",0);
+
         for(MenuItem menu : menuList){
             comboBox1.addItem(menu.getDescription());
             comboBox2.addItem(menu.getDescription());
@@ -695,5 +698,7 @@ public class adminSight extends JFrame{
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
+
+
 }
 
